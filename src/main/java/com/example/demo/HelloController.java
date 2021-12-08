@@ -1,15 +1,18 @@
 package com.example.demo;
 
-import javafx.animation.TranslateTransition;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.Node;
-import javafx.scene.control.Label;
+
+import javafx.scene.control.Button;
 import javafx.scene.image.ImageView;
-import javafx.util.Duration;
+import javafx.scene.input.MouseEvent;
+
 
 import java.net.URL;
 import java.util.ResourceBundle;
+
+import static com.example.demo.CommonAnimation.*;
+import static com.example.demo.HelloApplication.*;
 
 public class HelloController implements Initializable {
 
@@ -31,35 +34,60 @@ public class HelloController implements Initializable {
     @FXML
     private ImageView cloud_4;
 
-    public void vertical_jump(Node node, int n, boolean rev, int time) {
-        TranslateTransition t= new TranslateTransition();
-        t.setNode(node);
-        t.setByY(n);
-        t.setAutoReverse(rev);
-        t.setDuration(Duration.millis(time));
-        t.setCycleCount(TranslateTransition.INDEFINITE);
-        t.play();
-    }
+    @FXML
+    private Button ExitButton;
 
-    public void hor_move(Node node, int n, int delay, boolean rev, int time) {
-        TranslateTransition t= new TranslateTransition();
-        t.setNode(node);
-        t.setByX(n);
-        t.setDelay(Duration.millis(delay));
-        t.setAutoReverse(rev);
-        t.setDuration(Duration.millis(time));
-        t.setCycleCount(TranslateTransition.INDEFINITE);
-        t.play();
-    }
+    @FXML
+    private Button HighScore;
+
+    @FXML
+    private Button PlayButton;
+
+
+    @FXML
+    private Button LoadSavedGame;
+
+    @FXML
+    private Button NewGame;
+
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         //Hero translation
-        vertical_jump(hero, -55, true, 550);
-        vertical_jump(boss, -90, true, 900);
-        hor_move(cloud_1, -900, 1000, false, 12000);
-        hor_move(cloud_2, -1000, 5000, false, 12000);
-        hor_move(cloud_3, -990, 1000, false, 12000);
-        hor_move(cloud_4, -1100, 5000, false, 12000);
+        runTranslateTransition(PlayButton, 0,-207,3000).play();
+        runTranslateTransition(HighScore, 0,-207,3000).play();
+        runTranslateTransition(ExitButton, 0,-207,3000).play();
+        vertical_jump(hero, -55, true, 550).play();
+        vertical_jump(boss, -90, true, 900).play();
+        hor_move(cloud_1, -900, 1000, false, 12000).play();
+        hor_move(cloud_2, -1000, 5000, false, 12000).play();
+        hor_move(cloud_3, -990, 1000, false, 12000).play();
+        hor_move(cloud_4, -1100, 5000, false, 12000).play();
+
+    }
+    @FXML
+    void ExitButtonClicked(MouseEvent event) throws Exception {
+        LoadExitScreen();
+    }
+
+    @FXML
+    void HighScoreClicked(MouseEvent event)throws Exception {
+        ShowHighScore();
+    }
+
+    @FXML
+    void PlayButtonClicked(MouseEvent event) {
+        PlayButton.setDisable(true);
+        PlayButton.setVisible(false);
+        ExitButton.setDisable(true);
+        ExitButton.setVisible(false);
+        HighScore.setDisable(true);
+        HighScore.setVisible(false);
+
+        LoadSavedGame.setDisable(false);
+        LoadSavedGame.setVisible(true);
+        NewGame.setDisable(false);
+        NewGame.setVisible(true);
+
     }
 }

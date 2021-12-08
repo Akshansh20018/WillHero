@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="370.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.HelloController">
+    <children>
+        <ImageView fitHeight="370.0" fitWidth="700.0" pickOnBounds="true">
+            <image>
+                <Image url="@../../../images/bg.jpg" />
+            </image>
+        </ImageView>
+        <ImageView fx:id="plat_1" fitHeight="208.0" fitWidth="242.0" layoutX="-10.0" layoutY="125.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../../../images/plat_1-removebg-preview.png" />
+            </image>
+        </ImageView>
+        <ImageView fx:id="plat_11" fitHeight="298.0" fitWidth="418.0" layoutX="484.0" layoutY="88.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../../../images/plat_1-removebg-preview.png" />
+            </image>
+        </ImageView>
+        <ImageView blendMode="COLOR_BURN" fitHeight="61.0" fitWidth="52.0" layoutX="494.0" layoutY="148.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../../../images/skull-removebg-preview.png" />
+            </image>
+        </ImageView>
+        <ImageView blendMode="HARD_LIGHT" fitHeight="131.0" fitWidth="31.0" layoutX="524.0" layoutY="147.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../../../images/skull-removebg-preview.png" />
+            </image>
+        </ImageView>
+        <ImageView blendMode="DARKEN" fitHeight="84.0" fitWidth="31.0" layoutX="556.0" layoutY="147.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../../../images/skull-removebg-preview.png" />
+            </image>
+        </ImageView>
+        <Button fx:id="PlayButton" layoutX="300.0" layoutY="386.0" mnemonicParsing="false" onMouseClicked="#PlayButtonClicked" style="-fx-background-color: transparent;" text="Play" textFill="WHITE">
+            <font>
+                <Font name="Berlin Sans FB" size="20.0" />
+            </font>
+        </Button>
+        <Button fx:id="HighScore" layoutX="274.0" layoutY="433.0" mnemonicParsing="false" onMouseClicked="#HighScoreClicked" style="-fx-background-color: transparent;" text="High Score" textFill="WHITE">
+            <font>
+                <Font name="Berlin Sans FB" size="20.0" />
+            </font>
+        </Button>
+        <Button fx:id="ExitButton" layoutX="303.0" layoutY="480.0" mnemonicParsing="false" onMouseClicked="#ExitButtonClicked" style="-fx-background-color: transparent;" text="Exit" textFill="WHITE">
+            <font>
+                <Font name="Berlin Sans FB" size="20.0" />
+            </font>
+        </Button>
+        <ImageView fx:id="cloud_1" fitHeight="96.0" fitWidth="178.0" layoutX="700.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../../../images/cloud1-removebg-preview.png" />
+            </image>
+        </ImageView>
+        <ImageView fx:id="cloud_2" fitHeight="96.0" fitWidth="169.0" layoutX="813.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../../../images/cloud2-removebg-preview.png" />
+            </image>
+        </ImageView>
+        <ImageView fx:id="cloud_3" fitHeight="96.0" fitWidth="178.0" layoutX="768.0" layoutY="72.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../../../images/cloud3-removebg-preview.png" />
+            </image>
+        </ImageView>
+        <ImageView fx:id="cloud_4" fitHeight="96.0" fitWidth="178.0" layoutX="888.0" layoutY="49.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../../../images/cloud4-removebg-preview.png" />
+            </image>
+        </ImageView>
+        <ImageView fx:id="boss" fitHeight="96.0" fitWidth="96.0" layoutX="554.0" layoutY="112.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../../../images/boss.jpg" />
+            </image>
+        </ImageView>
+        <ImageView fitHeight="114.0" fitWidth="169.0" layoutX="267.0" layoutY="28.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../../../images/title.jpg" />
+            </image>
+        </ImageView>
+        <ImageView fx:id="hero" fitHeight="52.0" fitWidth="68.0" layoutX="52.0" layoutY="160.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../../../images/bear_character-removebg-preview.png" />
+            </image>
+        </ImageView>
+      <Button fx:id="NewGame" disable="true" layoutX="300.0" layoutY="191.0" mnemonicParsing="false" onMouseClicked="#PlayButtonClicked" style="-fx-background-color: transparent;" text="New Game" textFill="WHITE" visible="false">
+         <font>
+            <Font name="Berlin Sans FB" size="20.0" />
+         </font>
+      </Button>
+      <Button fx:id="LoadSavedGame" disable="true" layoutX="270.0" layoutY="257.0" mnemonicParsing="false" onMouseClicked="#PlayButtonClicked" style="-fx-background-color: transparent;" text="Load Saved Game" textFill="WHITE" visible="false">
+         <font>
+            <Font name="Berlin Sans FB" size="20.0" />
+         </font>
+      </Button>
+    </children>
+</AnchorPane>
