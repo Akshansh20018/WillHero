@@ -1,32 +1,65 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="370.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.HelloController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="370.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="C:\Users\dkj92\IdeaProjects\demo\src\main\java\com\example\demo\PlayGamePageController.java">
     <children>
-        <ImageView fitHeight="370.0" fitWidth="700.0" pickOnBounds="true">
-            <image>
-                <Image url="@../../../images/bg.jpg" />
-            </image>
-        </ImageView>
-        <ImageView fitHeight="114.0" fitWidth="169.0" layoutX="266.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true">
-            <image>
-                <Image url="@../../../images/title.jpg" />
-            </image>
-        </ImageView>
-        <TextField layoutX="115.0" layoutY="159.0" style="-fx-background-color: light;" text="Thank You For Playing">
-            <font>
-                <Font name="Bookman Old Style" size="39.0" />
-            </font>
-        </TextField>
-        <TextField layoutX="289.0" layoutY="269.0" prefHeight="73.0" prefWidth="146.0" style="-fx-background-color: light;" text="Byee">
-            <font>
-                <Font name="Bookman Old Style" size="39.0" />
-            </font>
-        </TextField>
+      <ImageView fitHeight="370.0" fitWidth="700.0" pickOnBounds="true">
+         <image>
+            <Image url="@../../../images/bg.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="plat_1" fitHeight="208.0" fitWidth="242.0" layoutX="-7.0" layoutY="126.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../images/plat_1-removebg-preview.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="plat_11" fitHeight="208.0" fitWidth="242.0" layoutX="183.0" layoutY="126.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../images/cloud-removebg-preview%20(1).png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="plat_12" fitHeight="266.0" fitWidth="443.0" layoutX="312.0" layoutY="90.0" pickOnBounds="true">
+         <image>
+            <Image url="@../../../images/platform-removebg-preview%20(1).png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="hero" fitHeight="52.0" fitWidth="68.0" layoutX="44.0" layoutY="159.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../images/bear_character-removebg-preview.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="166.0" fitWidth="222.0" layoutX="315.0" layoutY="83.0" pickOnBounds="true">
+         <image>
+            <Image url="@../../../images/3386ce96-c6af-46e1-ae4c-d71ec06a04981-removebg-preview.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="cloud_1" fitHeight="96.0" fitWidth="178.0" layoutX="710.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../images/cloud1-removebg-preview.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="cloud_2" fitHeight="96.0" fitWidth="169.0" layoutX="823.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../images/cloud2-removebg-preview.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="cloud_3" fitHeight="96.0" fitWidth="178.0" layoutX="778.0" layoutY="80.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../images/cloud3-removebg-preview.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="cloud_4" fitHeight="96.0" fitWidth="178.0" layoutX="898.0" layoutY="57.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../images/cloud4-removebg-preview.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="52.0" fitWidth="76.0" layoutX="639.0" layoutY="168.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../images/chest-removebg-preview.png" />
+         </image>
+      </ImageView>
     </children>
 </AnchorPane>

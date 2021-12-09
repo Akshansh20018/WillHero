@@ -1,13 +1,20 @@
 package com.example.demo;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.stage.Stage;
 
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -15,6 +22,9 @@ import static com.example.demo.CommonAnimation.*;
 import static com.example.demo.HelloApplication.*;
 
 public class HelloController implements Initializable {
+    private Stage stage;
+    private Scene scene;
+    private Parent root;
 
     @FXML
     private ImageView hero;
@@ -43,13 +53,11 @@ public class HelloController implements Initializable {
     @FXML
     private Button PlayButton;
 
-
     @FXML
     private Button LoadSavedGame;
 
     @FXML
     private Button NewGame;
-
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -63,7 +71,6 @@ public class HelloController implements Initializable {
         hor_move(cloud_2, -1000, 5000, false, 12000).play();
         hor_move(cloud_3, -990, 1000, false, 12000).play();
         hor_move(cloud_4, -1100, 5000, false, 12000).play();
-
     }
     @FXML
     void ExitButtonClicked(MouseEvent event) throws Exception {
@@ -88,6 +95,13 @@ public class HelloController implements Initializable {
         LoadSavedGame.setVisible(true);
         NewGame.setDisable(false);
         NewGame.setVisible(true);
-
     }
+
+//    @FXML
+//    void new_window(ActionEvent event) throws IOException {
+//        root= FXMLLoader.load(getClass().getResource(src/main/resources/com/example/demo/PlayGamePage.fxml));
+//        stage= (Stage)((Node)event.getSource()).getScene().getWindow();
+//        stage.setScene(scene);
+//        stage.show();
+//    }
 }

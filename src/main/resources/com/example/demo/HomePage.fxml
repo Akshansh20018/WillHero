@@ -88,7 +88,7 @@
                 <Image url="@../../../images/bear_character-removebg-preview.png" />
             </image>
         </ImageView>
-      <Button fx:id="NewGame" disable="true" layoutX="300.0" layoutY="191.0" mnemonicParsing="false" onMouseClicked="#PlayButtonClicked" style="-fx-background-color: transparent;" text="New Game" textFill="WHITE" visible="false">
+      <Button fx:id="NewGame" disable="true" layoutX="300.0" layoutY="191.0" mnemonicParsing="false" onAction="#new_window" onMouseClicked="#PlayButtonClicked" style="-fx-background-color: transparent;" text="New Game" textFill="WHITE" visible="false">
          <font>
             <Font name="Berlin Sans FB" size="20.0" />
          </font>
