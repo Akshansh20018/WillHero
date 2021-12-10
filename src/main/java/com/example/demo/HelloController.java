@@ -1,5 +1,6 @@
 package com.example.demo;
 
+import javafx.animation.FadeTransition;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -11,7 +12,9 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 
 
 import java.io.IOException;
@@ -22,9 +25,6 @@ import static com.example.demo.CommonAnimation.*;
 import static com.example.demo.HelloApplication.*;
 
 public class HelloController implements Initializable {
-    private Stage stage;
-    private Scene scene;
-    private Parent root;
 
     @FXML
     private ImageView hero;
@@ -84,24 +84,36 @@ public class HelloController implements Initializable {
 
     @FXML
     void PlayButtonClicked(MouseEvent event) {
+        fade(PlayButton, 1, 0);
         PlayButton.setDisable(true);
-        PlayButton.setVisible(false);
+//        PlayButton.setVisible(false);
+        fade(ExitButton, 1, 0);
         ExitButton.setDisable(true);
-        ExitButton.setVisible(false);
+//        ExitButton.setVisible(false);
+        fade(HighScore, 1, 0);
         HighScore.setDisable(true);
-        HighScore.setVisible(false);
+//        HighScore.setVisible(false);
 
         LoadSavedGame.setDisable(false);
         LoadSavedGame.setVisible(true);
+        fade(LoadSavedGame, 0, 1);
         NewGame.setDisable(false);
         NewGame.setVisible(true);
+        fade(NewGame, 0, 1);
     }
 
-//    @FXML
-//    void new_window(ActionEvent event) throws IOException {
-//        root= FXMLLoader.load(getClass().getResource(src/main/resources/com/example/demo/PlayGamePage.fxml));
-//        stage= (Stage)((Node)event.getSource()).getScene().getWindow();
-//        stage.setScene(scene);
-//        stage.show();
-//    }
+    @FXML
+    void New_Game(ActionEvent event) throws IOException {
+//        play_game(event);
+    }
+
+    private void fade(Node node, int from, int to) {
+        FadeTransition fadeTransition = new FadeTransition();
+        fadeTransition.setDuration(Duration.millis(2000));
+        fadeTransition.setNode(node);
+        fadeTransition.setFromValue(from);
+        fadeTransition.setToValue(to);
+        fadeTransition.play();
+    }
+
 }
