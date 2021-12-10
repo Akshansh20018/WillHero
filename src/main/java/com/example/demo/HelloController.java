@@ -1,6 +1,8 @@
 package com.example.demo;
 
-import javafx.animation.FadeTransition;
+
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -61,6 +63,13 @@ public class HelloController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+
+        IntroTransition();
+
+
+
+    }
+    public void IntroTransition(){
         //Hero translation
         runTranslateTransition(PlayButton, 0,-207,3000).play();
         runTranslateTransition(HighScore, 0,-207,3000).play();
@@ -84,36 +93,32 @@ public class HelloController implements Initializable {
 
     @FXML
     void PlayButtonClicked(MouseEvent event) {
-        fade(PlayButton, 1, 0);
         PlayButton.setDisable(true);
-//        PlayButton.setVisible(false);
-        fade(ExitButton, 1, 0);
-        ExitButton.setDisable(true);
-//        ExitButton.setVisible(false);
-        fade(HighScore, 1, 0);
-        HighScore.setDisable(true);
-//        HighScore.setVisible(false);
+//        fade(PlayButton, 1, 0).play();
+        PlayButton.setVisible(false);
 
+        ExitButton.setDisable(true);
+//        fade(ExitButton, 1, 0).play();
+        ExitButton.setVisible(false);
+
+        HighScore.setDisable(true);
+//        fade(HighScore, 1, 0).play();
+        HighScore.setVisible(false);
+
+        delay(1000);
         LoadSavedGame.setDisable(false);
         LoadSavedGame.setVisible(true);
-        fade(LoadSavedGame, 0, 1);
+          fade(LoadSavedGame, 0, 1).play();
         NewGame.setDisable(false);
         NewGame.setVisible(true);
-        fade(NewGame, 0, 1);
+         fade(NewGame, 0, 1).play();
     }
 
-    @FXML
-    void New_Game(ActionEvent event) throws IOException {
+//    @FXML
+//    void New_Game(MouseEvent event) throws IOException {
 //        play_game(event);
-    }
+//    }
 
-    private void fade(Node node, int from, int to) {
-        FadeTransition fadeTransition = new FadeTransition();
-        fadeTransition.setDuration(Duration.millis(2000));
-        fadeTransition.setNode(node);
-        fadeTransition.setFromValue(from);
-        fadeTransition.setToValue(to);
-        fadeTransition.play();
-    }
+
 
 }

@@ -88,12 +88,12 @@
                 <Image url="@../../../images/bear_character-removebg-preview.png" />
             </image>
         </ImageView>
-      <Button fx:id="NewGame" disable="true" layoutX="300.0" layoutY="191.0" mnemonicParsing="false" onAction="#new_window" onMouseClicked="#PlayButtonClicked" style="-fx-background-color: transparent;" text="New Game" textFill="WHITE" visible="false">
+      <Button fx:id="NewGame" disable="true" layoutX="271.0" layoutY="191.0" mnemonicParsing="false" onMouseClicked="#PlayButtonClicked" style="-fx-background-color: transparent;" text="New Game" textFill="WHITE" visible="false">
          <font>
             <Font name="Berlin Sans FB" size="20.0" />
          </font>
       </Button>
-      <Button fx:id="LoadSavedGame" disable="true" layoutX="270.0" layoutY="257.0" mnemonicParsing="false" onMouseClicked="#PlayButtonClicked" style="-fx-background-color: transparent;" text="Load Saved Game" textFill="WHITE" visible="false">
+      <Button fx:id="LoadSavedGame" disable="true" layoutX="241.0" layoutY="255.0" mnemonicParsing="false" onMouseClicked="#PlayButtonClicked" style="-fx-background-color: transparent;" text="Load Saved Game" textFill="WHITE" visible="false">
          <font>
             <Font name="Berlin Sans FB" size="20.0" />
          </font>

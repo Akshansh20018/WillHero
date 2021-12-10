@@ -1,5 +1,8 @@
 package com.example.demo;
 
+import javafx.animation.FadeTransition;
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
 import javafx.animation.TranslateTransition;
 import javafx.util.Duration;
 import javafx.scene.Node;
@@ -34,5 +37,16 @@ public class CommonAnimation {
         t.setCycleCount(TranslateTransition.INDEFINITE);
         return t;
     }
+    public static FadeTransition fade(Node node, int from, int to) {
+        FadeTransition fadeTransition = new FadeTransition();
+        fadeTransition.setDuration(Duration.millis(2000));
+        fadeTransition.setNode(node);
+        fadeTransition.setFromValue(from);
+        fadeTransition.setToValue(to);
+        return fadeTransition;
+    }
+    public static Timeline delay(double time){
 
+        return new Timeline(new KeyFrame(Duration.millis(time),e ->{}));
+    }
 }

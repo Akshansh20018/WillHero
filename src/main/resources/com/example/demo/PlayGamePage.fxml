@@ -8,12 +8,12 @@
     <children>
       <ImageView fitHeight="370.0" fitWidth="700.0" pickOnBounds="true">
          <image>
-            <Image url="@../../../../resources/images/bg.jpg" />
+            <Image url="@../../../images/bg.jpg" />
          </image>
       </ImageView>
       <ImageView fx:id="plat_1" fitHeight="208.0" fitWidth="242.0" layoutX="-7.0" layoutY="126.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../../resources/images/plat_1-removebg-preview.png" />
+            <Image url="@../../../images/plat_1-removebg-preview.png" />
          </image>
       </ImageView>
       <ImageView fx:id="plat_11" fitHeight="208.0" fitWidth="242.0" layoutX="183.0" layoutY="126.0" pickOnBounds="true" preserveRatio="true">
@@ -28,42 +28,42 @@
       </ImageView>
       <ImageView fx:id="hero" fitHeight="52.0" fitWidth="68.0" layoutX="44.0" layoutY="159.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../../resources/images/bear_character-removebg-preview.png" />
+            <Image url="@../../../images/bear_character-removebg-preview.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="166.0" fitWidth="222.0" layoutX="315.0" layoutY="83.0" pickOnBounds="true">
          <image>
-            <Image url="@../../../../resources/images/3386ce96-c6af-46e1-ae4c-d71ec06a04981-removebg-preview.png" />
+            <Image url="@../../../images/3386ce96-c6af-46e1-ae4c-d71ec06a04981-removebg-preview.png" />
          </image>
       </ImageView>
       <ImageView fx:id="cloud_3" fitHeight="96.0" fitWidth="178.0" layoutX="778.0" layoutY="80.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../../resources/images/cloud3-removebg-preview.png" />
+            <Image url="@../../../images/cloud3-removebg-preview.png" />
          </image>
       </ImageView>
       <ImageView fx:id="cloud_4" fitHeight="96.0" fitWidth="178.0" layoutX="898.0" layoutY="57.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../../resources/images/cloud4-removebg-preview.png" />
+            <Image url="@../../../images/cloud4-removebg-preview.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="52.0" fitWidth="76.0" layoutX="648.0" layoutY="168.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../../resources/images/chest-removebg-preview.png" />
+            <Image url="@../../../images/chest-removebg-preview.png" />
          </image>
       </ImageView>
       <ImageView fx:id="pause" fitHeight="45.0" fitWidth="40.0" layoutX="7.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../../resources/images/pause_button-removebg-preview.png" />
+            <Image url="@../../../images/pause_button-removebg-preview.png" />
          </image>
       </ImageView>
       <ImageView fx:id="cloud_1" fitHeight="96.0" fitWidth="178.0" layoutX="710.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../../resources/images/cloud1-removebg-preview.png" />
+            <Image url="@../../../images/cloud1-removebg-preview.png" />
          </image>
       </ImageView>
       <ImageView fx:id="cloud_2" fitHeight="96.0" fitWidth="169.0" layoutX="823.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../../resources/images/cloud2-removebg-preview.png" />
+            <Image url="@../../../images/cloud2-removebg-preview.png" />
          </image>
       </ImageView>
     </children>

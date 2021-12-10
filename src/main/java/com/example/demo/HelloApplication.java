@@ -1,15 +1,15 @@
 package com.example.demo;
 
 import javafx.application.Application;
-import javafx.fxml.FXML;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.Scene;
-import javafx.scene.Parent;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 import java.io.IOException;
-import javafx.scene.transform.Scale;
+
 public class HelloApplication extends Application {
 
     public static void LoadExitScreen() throws IOException {
@@ -28,6 +28,16 @@ public class HelloApplication extends Application {
 
          */
     }
+
+//    public static void play_game(ActionEvent event) throws IOException {
+//        FXMLLoader game= new FXMLLoader(HelloApplication.class.getResource("PlayGamePage.fxml"));
+//        Scene scene = new Scene(game.load(), 700, 370);
+//        Stage stage= (Stage)((Node)event.getSource()).getScene().getWindow();
+//        Stage stage= new Stage();
+//        stage.setScene(scene);
+//        stage.show();
+//    }
+
     @Override
     public void start(Stage stage) throws Exception {
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("HomePage.fxml"));
