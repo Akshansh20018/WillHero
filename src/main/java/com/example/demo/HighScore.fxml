@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="370.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="C:\Users\dkj92\IdeaProjects\demo\src\main\java\com\example\demo\High_ScoreController.java">
+    <children>
+        <ImageView fitHeight="370.0" fitWidth="700.0" pickOnBounds="true">
+            <image>
+                <Image url="@../../../../resources/images/bg.jpg" />
+            </image>
+        </ImageView>
+        <ImageView fitHeight="270.0" fitWidth="418.0" layoutX="160.0" layoutY="86.0" opacity="0.43" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../../../../resources/images/title.jpg" />
+            </image>
+        </ImageView>
+        <TextField layoutX="248.0" layoutY="-2.0" prefHeight="74.0" prefWidth="227.0" style="-fx-background-color: ligh;" text="High Score">
+            <font>
+                <Font name="Berlin Sans FB" size="39.0" />
+            </font>
+        </TextField>
+      <TableView layoutX="27.0" layoutY="59.0" prefHeight="282.0" prefWidth="652.0" style="-fx-background-color: light;">
+        <columns>
+          <TableColumn editable="false" prefWidth="311.199987411499" sortType="DESCENDING" sortable="false" text="Date" />
+          <TableColumn editable="false" minWidth="0.0" prefWidth="335.199951171875" sortType="DESCENDING" text="Score" />
+        </columns>
+      </TableView>
+      <ImageView fx:id="back_button" fitHeight="47.0" fitWidth="49.0" layoutX="6.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../resources/images/back-removebg-preview.png" />
+         </image>
+      </ImageView>
+    </children>
+</AnchorPane>

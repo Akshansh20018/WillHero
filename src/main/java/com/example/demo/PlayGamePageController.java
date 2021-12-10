@@ -36,6 +36,9 @@ public class PlayGamePageController implements Initializable {
     @FXML
     private ImageView plat_12;
 
+    @FXML
+    private ImageView pause_button;
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         vertical_jump(hero, -55, true, 550).play();
