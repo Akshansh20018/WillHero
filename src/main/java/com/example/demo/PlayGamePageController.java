@@ -3,7 +3,9 @@ package com.example.demo;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -31,13 +33,15 @@ public class PlayGamePageController implements Initializable {
     private ImageView plat_1;
 
     @FXML
-    private ImageView plat_11;
+    private ImageView plat_2;
 
     @FXML
     private ImageView plat_12;
 
     @FXML
     private ImageView pause_button;
+    @FXML
+    private ImageView orc;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -46,6 +50,12 @@ public class PlayGamePageController implements Initializable {
         hor_move(cloud_2, -1000, 5000, false, 12000).play();
         hor_move(cloud_3, -990, 1000, false, 12000).play();
         hor_move(cloud_4, -1100, 5000, false, 12000).play();
+        vertical_jump(plat_2,-15,true,3000).play();
+        vertical_jump(orc,-25,true,450).play();
+    }
 
+    public void pauseClicked(MouseEvent mouseEvent) throws IOException {
+        //pause func back button fade
+        LoadPause();
     }
 }

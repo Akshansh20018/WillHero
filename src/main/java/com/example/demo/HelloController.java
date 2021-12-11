@@ -61,12 +61,13 @@ public class HelloController implements Initializable {
     @FXML
     private Button NewGame;
 
+    @FXML
+    private ImageView BackButton;
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
         IntroTransition();
-
-
 
     }
     public void IntroTransition(){
@@ -88,11 +89,13 @@ public class HelloController implements Initializable {
 
     @FXML
     void HighScoreClicked(MouseEvent event)throws Exception {
+
         ShowHighScore();
     }
-
-    @FXML
-    void PlayButtonClicked(MouseEvent event) {
+    public void BackButtonPressed(MouseEvent mouseEvent) throws Exception {
+        HomePage();
+    }
+    private void DisableHomepage(){
         PlayButton.setDisable(true);
 //        fade(PlayButton, 1, 0).play();
         PlayButton.setVisible(false);
@@ -105,14 +108,30 @@ public class HelloController implements Initializable {
 //        fade(HighScore, 1, 0).play();
         HighScore.setVisible(false);
 
+
+    }
+    @FXML
+    void PlayButtonClicked(MouseEvent event) {
+        DisableHomepage();
+        BackButton.setDisable(false);
+
         delay(1000);
         LoadSavedGame.setDisable(false);
         LoadSavedGame.setVisible(true);
           fade(LoadSavedGame, 0, 1).play();
         NewGame.setDisable(false);
         NewGame.setVisible(true);
+
          fade(NewGame, 0, 1).play();
+        BackButton.setVisible(true);
+        fade(BackButton,0,1).play();
+
     }
+
+    public void StartPlaying(MouseEvent mouseEvent) throws Exception{
+        StartGame();
+    }
+
 
 //    @FXML
 //    void New_Game(MouseEvent event) throws IOException {

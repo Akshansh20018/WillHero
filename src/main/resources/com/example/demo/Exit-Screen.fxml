@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="370.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.HelloController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="370.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.HelloController">
     <children>
         <ImageView fitHeight="370.0" fitWidth="700.0" layoutX="1.0" pickOnBounds="true">
             <image>
@@ -18,15 +18,10 @@
                 <Image url="@../../../images/title.jpg" />
             </image>
         </ImageView>
-      <TextField layoutX="115.0" layoutY="159.0" style="-fx-background-color: light;" text="Thank You For Playing">
+      <Text layoutX="172.0" layoutY="233.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Thanks For Playing !" wrappingWidth="402.13665771484375">
          <font>
-            <Font name="Bookman Old Style" size="39.0" />
+            <Font name="Poor Richard" size="53.0" />
          </font>
-      </TextField>
-      <TextField layoutX="289.0" layoutY="269.0" prefHeight="73.0" prefWidth="146.0" style="-fx-background-color: light;" text="Byee">
-         <font>
-            <Font name="Bookman Old Style" size="39.0" />
-         </font>
-      </TextField>
+      </Text>
     </children>
 </AnchorPane>

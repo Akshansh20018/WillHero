@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="370.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.HelloController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="370.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.HelloController">
     <children>
         <ImageView fitHeight="370.0" fitWidth="700.0" pickOnBounds="true">
             <image>
@@ -88,15 +88,20 @@
                 <Image url="@../../../images/bear_character-removebg-preview.png" />
             </image>
         </ImageView>
-      <Button fx:id="NewGame" disable="true" layoutX="271.0" layoutY="191.0" mnemonicParsing="false" onMouseClicked="#PlayButtonClicked" style="-fx-background-color: transparent;" text="New Game" textFill="WHITE" visible="false">
+      <Button fx:id="NewGame" disable="true" layoutX="271.0" layoutY="191.0" mnemonicParsing="false" onMouseClicked="#StartPlaying" style="-fx-background-color: transparent;" text="New Game" textFill="WHITE" visible="false">
          <font>
             <Font name="Berlin Sans FB" size="20.0" />
          </font>
       </Button>
-      <Button fx:id="LoadSavedGame" disable="true" layoutX="241.0" layoutY="255.0" mnemonicParsing="false" onMouseClicked="#PlayButtonClicked" style="-fx-background-color: transparent;" text="Load Saved Game" textFill="WHITE" visible="false">
+      <Button fx:id="LoadSavedGame" disable="true" layoutX="241.0" layoutY="255.0" mnemonicParsing="false" onMouseClicked="#StartPlaying" style="-fx-background-color: transparent;" text="Load Saved Game" textFill="WHITE" visible="false">
          <font>
             <Font name="Berlin Sans FB" size="20.0" />
          </font>
       </Button>
+      <ImageView fx:id="BackButton" disable="true" fitHeight="51.0" fitWidth="85.0" layoutX="19.0" layoutY="315.0" onMouseClicked="#BackButtonPressed" pickOnBounds="true" preserveRatio="true" visible="false">
+         <image>
+            <Image url="@../../../images/back-removebg-preview.png" />
+         </image>
+      </ImageView>
     </children>
 </AnchorPane>
