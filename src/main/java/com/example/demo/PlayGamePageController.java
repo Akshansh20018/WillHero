@@ -1,9 +1,12 @@
 package com.example.demo;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
 
 import java.io.IOException;
 import java.net.URL;
@@ -39,9 +42,22 @@ public class PlayGamePageController implements Initializable {
     private ImageView plat_12;
 
     @FXML
-    private ImageView pause_button;
+    private Button pause_button;
+
+    @FXML
+    private Button resume;
+
     @FXML
     private ImageView orc;
+
+    @FXML
+    private AnchorPane pause_screen;
+
+    @FXML
+    private ImageView chest;
+
+    @FXML
+    private ImageView pause_image;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -54,8 +70,15 @@ public class PlayGamePageController implements Initializable {
         vertical_jump(orc,-25,true,450).play();
     }
 
-    public void pauseClicked(MouseEvent mouseEvent) throws IOException {
+    public void pauseClicked(ActionEvent event) throws IOException {
         //pause func back button fade
-        LoadPause();
+        runTranslateTransition(pause_screen, 0, 377, 2000).play();
+//        System.out.println("hello mic test");
+    }
+
+    public void resumeClicked(ActionEvent event) throws IOException {
+        //pause func back button fade
+        runTranslateTransition(pause_screen, 0, -377, 2000).play();
+//        System.out.println("hello mic test");
     }
 }
