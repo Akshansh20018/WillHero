@@ -15,6 +15,7 @@ import java.io.IOException;
 import java.util.Random;
 
 
+import static com.example.demo.CommonAnimation.vertical_jump;
 import static java.util.Objects.*;
 
 public class HelloApplication extends Application {
@@ -68,6 +69,7 @@ public class HelloApplication extends Application {
         root.getChildren().add(img);
         int temp= root.getChildren().size();
         root.getChildren().get(temp-2).toFront();
+        vertical_jump(img,-25,true,450).play();
         PrimaryStage.getScene().setRoot(root);
     }
 
