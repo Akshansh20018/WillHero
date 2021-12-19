@@ -7,10 +7,12 @@ import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.Parent;
 import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import java.io.File;
 import java.io.IOException;
-
+import java.util.Random;
 
 
 import static java.util.Objects.*;
@@ -53,9 +55,18 @@ public class HelloApplication extends Application {
     }
     public static void StartGame() throws IOException {
         //Insert code to setup PlayGame Application fxml file;
-        Parent root = FXMLLoader.load(HelloApplication.class.getResource("PlayGamePage.fxml"));
+        AnchorPane root = (AnchorPane) FXMLLoader.load(HelloApplication.class.getResource("PlayGamePage.fxml"));
+        Random rand= new Random();
+        int loc= rand.nextInt(500);
+        Image orco= new Image(HelloApplication.class.getResourceAsStream("Icon.png"));
+        ImageView img= new ImageView();
+        img.setImage(orco);
+        img.setFitHeight(20);
+        img.setFitWidth(20);
+        img.setX(loc);
+        img.setY(83);
+        root.getChildren().add(img);
         PrimaryStage.getScene().setRoot(root);
-
     }
 
 
