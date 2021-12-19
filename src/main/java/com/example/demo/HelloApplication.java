@@ -58,14 +58,16 @@ public class HelloApplication extends Application {
         AnchorPane root = (AnchorPane) FXMLLoader.load(HelloApplication.class.getResource("PlayGamePage.fxml"));
         Random rand= new Random();
         int loc= rand.nextInt(500);
-        Image orco= new Image(HelloApplication.class.getResourceAsStream("Icon.png"));
+        Image orco= new Image(HelloApplication.class.getResourceAsStream("green_orc.png"));
         ImageView img= new ImageView();
         img.setImage(orco);
-        img.setFitHeight(20);
-        img.setFitWidth(20);
-        img.setX(loc);
-        img.setY(83);
+        img.setFitHeight(250);
+        img.setFitWidth(166);
+//        img.setX(loc);
+//        img.setY();
         root.getChildren().add(img);
+        int temp= root.getChildren().size();
+        root.getChildren().get(temp-2).toFront();
         PrimaryStage.getScene().setRoot(root);
     }
 
