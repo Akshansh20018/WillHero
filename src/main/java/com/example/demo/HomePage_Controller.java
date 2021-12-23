@@ -1,32 +1,21 @@
 package com.example.demo;
 
 
-import javafx.animation.KeyFrame;
-import javafx.animation.Timeline;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 
-import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.AnchorPane;
-import javafx.stage.Stage;
-import javafx.util.Duration;
 
 
-import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
 import static com.example.demo.CommonAnimation.*;
-import static com.example.demo.HelloApplication.*;
+import static com.example.demo.Main.*;
 
-public class HelloController implements Initializable {
+public class HomePage_Controller implements Initializable {
 
     @FXML
     private ImageView hero;

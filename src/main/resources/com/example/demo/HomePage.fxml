@@ -6,36 +6,36 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="370.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.HelloController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="370.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.HomePage_Controller">
     <children>
         <ImageView fitHeight="370.0" fitWidth="700.0" pickOnBounds="true">
             <image>
-                <Image url="@../../../images/bg.jpg" />
+                <Image url="@images/bg.jpg" />
             </image>
         </ImageView>
         <ImageView fx:id="plat_1" fitHeight="208.0" fitWidth="242.0" layoutX="-10.0" layoutY="125.0" pickOnBounds="true" preserveRatio="true">
             <image>
-                <Image url="@../../../images/plat_1-removebg-preview.png" />
+                <Image url="@images/plat_1-removebg-preview.png" />
             </image>
         </ImageView>
         <ImageView fx:id="plat_11" fitHeight="298.0" fitWidth="418.0" layoutX="484.0" layoutY="88.0" pickOnBounds="true" preserveRatio="true">
             <image>
-                <Image url="@../../../images/plat_1-removebg-preview.png" />
+                <Image url="@images/plat_1-removebg-preview.png" />
             </image>
         </ImageView>
         <ImageView blendMode="COLOR_BURN" fitHeight="61.0" fitWidth="52.0" layoutX="494.0" layoutY="148.0" pickOnBounds="true" preserveRatio="true">
             <image>
-                <Image url="@../../../images/skull-removebg-preview.png" />
+                <Image url="@images/skull-removebg-preview.png" />
             </image>
         </ImageView>
         <ImageView blendMode="HARD_LIGHT" fitHeight="131.0" fitWidth="31.0" layoutX="524.0" layoutY="147.0" pickOnBounds="true" preserveRatio="true">
             <image>
-                <Image url="@../../../images/skull-removebg-preview.png" />
+                <Image url="@images/skull-removebg-preview.png" />
             </image>
         </ImageView>
         <ImageView blendMode="DARKEN" fitHeight="84.0" fitWidth="31.0" layoutX="556.0" layoutY="147.0" pickOnBounds="true" preserveRatio="true">
             <image>
-                <Image url="@../../../images/skull-removebg-preview.png" />
+                <Image url="@images/skull-removebg-preview.png" />
             </image>
         </ImageView>
         <Button fx:id="PlayButton" layoutX="300.0" layoutY="386.0" mnemonicParsing="false" onMouseClicked="#PlayButtonClicked" style="-fx-background-color: transparent;" text="Play" textFill="WHITE">
@@ -55,37 +55,37 @@
         </Button>
         <ImageView fx:id="cloud_1" fitHeight="96.0" fitWidth="178.0" layoutX="700.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true">
             <image>
-                <Image url="@../../../images/cloud1-removebg-preview.png" />
+                <Image url="@images/cloud1-removebg-preview.png" />
             </image>
         </ImageView>
         <ImageView fx:id="cloud_2" fitHeight="96.0" fitWidth="169.0" layoutX="813.0" pickOnBounds="true" preserveRatio="true">
             <image>
-                <Image url="@../../../images/cloud2-removebg-preview.png" />
+                <Image url="@images/cloud2-removebg-preview.png" />
             </image>
         </ImageView>
         <ImageView fx:id="cloud_3" fitHeight="96.0" fitWidth="178.0" layoutX="768.0" layoutY="72.0" pickOnBounds="true" preserveRatio="true">
             <image>
-                <Image url="@../../../images/cloud3-removebg-preview.png" />
+                <Image url="@images/cloud3-removebg-preview.png" />
             </image>
         </ImageView>
         <ImageView fx:id="cloud_4" fitHeight="96.0" fitWidth="178.0" layoutX="888.0" layoutY="49.0" pickOnBounds="true" preserveRatio="true">
             <image>
-                <Image url="@../../../images/cloud4-removebg-preview.png" />
+                <Image url="@images/cloud4-removebg-preview.png" />
             </image>
         </ImageView>
         <ImageView fx:id="boss" fitHeight="96.0" fitWidth="96.0" layoutX="554.0" layoutY="112.0" pickOnBounds="true" preserveRatio="true">
             <image>
-                <Image url="@../../../images/boss.jpg" />
+                <Image url="@elements/boss.jpg" />
             </image>
         </ImageView>
         <ImageView fitHeight="114.0" fitWidth="169.0" layoutX="267.0" layoutY="28.0" pickOnBounds="true" preserveRatio="true">
             <image>
-                <Image url="@../../../images/title.jpg" />
+                <Image url="@images/title.jpg" />
             </image>
         </ImageView>
         <ImageView fx:id="hero" fitHeight="52.0" fitWidth="68.0" layoutX="52.0" layoutY="160.0" pickOnBounds="true" preserveRatio="true">
             <image>
-                <Image url="@../../../images/bear_character-removebg-preview.png" />
+                <Image url="@images/bear_character-removebg-preview.png" />
             </image>
         </ImageView>
       <Button fx:id="NewGame" disable="true" layoutX="271.0" layoutY="191.0" mnemonicParsing="false" onMouseClicked="#StartPlaying" style="-fx-background-color: transparent;" text="New Game" textFill="WHITE" visible="false">
@@ -100,7 +100,7 @@
       </Button>
       <ImageView fx:id="BackButton" disable="true" fitHeight="51.0" fitWidth="85.0" layoutX="19.0" layoutY="315.0" onMouseClicked="#BackButtonPressed" pickOnBounds="true" preserveRatio="true" visible="false">
          <image>
-            <Image url="@../../../images/back-removebg-preview.png" />
+            <Image url="@images/back-removebg-preview.png" />
          </image>
       </ImageView>
     </children>

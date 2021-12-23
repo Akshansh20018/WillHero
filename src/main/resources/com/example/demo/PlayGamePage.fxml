@@ -1,157 +1,59 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="370.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.PlayGamePageController">
-   <children>
+    <children>
       <ImageView fitHeight="370.0" fitWidth="700.0" pickOnBounds="true">
          <image>
-            <Image url="@../../../images/bg.jpg" />
+            <Image url="@images/bg.jpg" />
          </image>
       </ImageView>
-      <ImageView fx:id="plat_1" fitHeight="208.0" fitWidth="242.0" layoutX="-7.0" layoutY="126.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../../../images/plat_1-removebg-preview.png" />
-         </image>
-      </ImageView>
-      <ImageView fx:id="orc" fitHeight="166.0" fitWidth="222.0" layoutX="315.0" layoutY="83.0" pickOnBounds="true">
-         <image>
-            <Image url="@../../../images/3386ce96-c6af-46e1-ae4c-d71ec06a04981-removebg-preview.png" />
-         </image>
-      </ImageView>
-      <Button fx:id="pause_button" minWidth="40.0" mnemonicParsing="false" onAction="#pauseClicked" opacity="0.5" prefHeight="39.0" prefWidth="40.0" style="-fx-background-color: light;">
-         <graphic>
-            <ImageView fx:id="pause_image" fitHeight="36.0" fitWidth="36.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../../../images/pause_button-removebg-preview.png" />
-               </image>
-            </ImageView>
-         </graphic>
-      </Button>
       <ImageView fx:id="cloud_3" fitHeight="96.0" fitWidth="178.0" layoutX="778.0" layoutY="80.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../images/cloud3-removebg-preview.png" />
+            <Image url="@images/cloud3-removebg-preview.png" />
          </image>
       </ImageView>
       <ImageView fx:id="cloud_4" fitHeight="96.0" fitWidth="178.0" layoutX="898.0" layoutY="57.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../images/cloud4-removebg-preview.png" />
-         </image>
-      </ImageView>
-      <ImageView fx:id="chest" fitHeight="52.0" fitWidth="76.0" layoutX="648.0" layoutY="168.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../../../images/chest-removebg-preview.png" />
+            <Image url="@images/cloud4-removebg-preview.png" />
          </image>
       </ImageView>
       <ImageView fx:id="cloud_1" fitHeight="96.0" fitWidth="178.0" layoutX="710.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../images/cloud1-removebg-preview.png" />
+            <Image url="@images/cloud1-removebg-preview.png" />
          </image>
       </ImageView>
       <ImageView fx:id="cloud_2" fitHeight="96.0" fitWidth="169.0" layoutX="823.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../images/cloud2-removebg-preview.png" />
+            <Image url="@images/cloud2-removebg-preview.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="plat_11" fitHeight="208.0" fitWidth="242.0" layoutX="183.0" layoutY="126.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="pause_button" fitHeight="45.0" fitWidth="40.0" layoutX="7.0" layoutY="5.0" onMouseClicked="#pauseClicked" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../images/cloud-removebg-preview%20(1).png" />
+            <Image url="@images/pause_button-removebg-preview.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="plat_12" fitHeight="266.0" fitWidth="443.0" layoutX="312.0" layoutY="90.0" pickOnBounds="true">
-         <image>
-            <Image url="@../../../images/platform-removebg-preview%20(1).png" />
-         </image>
-      </ImageView>
+      <Text fx:id="Score" fill="#615858" layoutX="337.0" layoutY="43.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" wrappingWidth="25.30279541015625">
+         <font>
+            <Font name="Haettenschweiler" size="46.0" />
+         </font>
+      </Text>
       <ImageView fx:id="hero" fitHeight="52.0" fitWidth="68.0" layoutX="44.0" layoutY="159.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../images/bear_character-removebg-preview.png" />
+            <Image url="@images/bear_character-removebg-preview.png" />
          </image>
       </ImageView>
-      <AnchorPane fx:id="pause_screen" layoutY="-384.0" prefHeight="377.0" prefWidth="700.0" style="-fx-background-color: black;">
-         <children>
-            <Text fill="#fafafa" layoutX="14.0" layoutY="59.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Paused">
-               <font>
-                  <Font name="Berlin Sans FB" size="50.0" />
-               </font>
-            </Text>
-            <Button fx:id="resume" layoutX="91.0" layoutY="168.0" mnemonicParsing="false" onAction="#resumeClicked" opacity="0.5" prefHeight="55.0" prefWidth="55.0">
-               <graphic>
-                  <ImageView fitHeight="55.0" fitWidth="67.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../../../images/resume.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-            </Button>
-            <Text fill="WHITE" layoutX="94.0" layoutY="255.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Resume">
-               <font>
-                  <Font name="Berlin Sans FB" size="20.0" />
-               </font>
-            </Text>
-            <Button fx:id="save" layoutX="239.0" layoutY="168.0" mnemonicParsing="false" opacity="0.5" prefHeight="55.0" prefWidth="55.0">
-               <graphic>
-                  <ImageView fitHeight="55.0" fitWidth="67.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../../../images/save.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-            </Button>
-            <Text fill="WHITE" layoutX="254.0" layoutY="256.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Save">
-               <font>
-                  <Font name="Berlin Sans FB" size="20.0" />
-               </font>
-            </Text>
-            <Button fx:id="restart" layoutX="393.0" layoutY="168.0" mnemonicParsing="false" opacity="0.5" prefHeight="55.0" prefWidth="55.0">
-               <graphic>
-                  <ImageView fitHeight="55.0" fitWidth="67.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../../../images/restart.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-            </Button>
-            <Text fill="WHITE" layoutX="399.0" layoutY="256.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Restart">
-               <font>
-                  <Font name="Berlin Sans FB" size="20.0" />
-               </font>
-            </Text>
-            <Button fx:id="exit" layoutX="542.0" layoutY="168.0" mnemonicParsing="false" opacity="0.5" prefHeight="55.0" prefWidth="55.0">
-               <graphic>
-                  <ImageView fitHeight="55.0" fitWidth="67.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../../../images/exit.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-            </Button>
-            <Text fill="WHITE" layoutX="562.0" layoutY="256.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Exit">
-               <font>
-                  <Font name="Berlin Sans FB" size="20.0" />
-               </font>
-            </Text>
-            <ImageView blendMode="LIGHTEN" fitHeight="39.0" fitWidth="142.0" layoutX="209.0" layoutY="319.0" opacity="0.45" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../../../images/Will.jpg" />
-               </image>
-            </ImageView>
-            <ImageView fitHeight="44.0" fitWidth="142.0" layoutX="350.0" layoutY="319.0" opacity="0.45" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../../../images/Hero.jpg" />
-               </image>
-            </ImageView>
-            <ImageView fx:id="pause_hero" fitHeight="22.0" fitWidth="31.0" layoutX="342.0" layoutY="297.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../../../images/Helmet3.png" />
-               </image>
-            </ImageView>
-         </children>
-      </AnchorPane>
-   </children>
+      <ImageView fx:id="plat_1" fitHeight="208.0" fitWidth="242.0" layoutX="-7.0" layoutY="126.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@images/plat_1-removebg-preview.png" />
+         </image>
+      </ImageView>
+      <Pane fx:id="pane" layoutX="-227.0" layoutY="246.0" prefHeight="200.0" prefWidth="200.0" />
+    </children>
 </AnchorPane>

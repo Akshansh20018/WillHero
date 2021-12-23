@@ -18,7 +18,7 @@
             <graphic>
                 <ImageView fitHeight="55.0" fitWidth="67.0" pickOnBounds="true" preserveRatio="true">
                     <image>
-                        <Image url="@../../../images/resume.png" />
+                        <Image url="@images/resume.png" />
                     </image>
                 </ImageView>
             </graphic>
@@ -27,7 +27,7 @@
             <graphic>
                 <ImageView fitHeight="55.0" fitWidth="67.0" pickOnBounds="true" preserveRatio="true">
                     <image>
-                        <Image url="@../../../images/save.png" />
+                        <Image url="@images/save.png" />
                     </image>
                 </ImageView>
             </graphic>
@@ -36,7 +36,7 @@
             <graphic>
                 <ImageView fitHeight="55.0" fitWidth="67.0" pickOnBounds="true" preserveRatio="true">
                     <image>
-                        <Image url="@../../../images/restart.png" />
+                        <Image url="@images/restart.png" />
                     </image>
                 </ImageView>
             </graphic>
@@ -45,7 +45,7 @@
             <graphic>
                 <ImageView fitHeight="55.0" fitWidth="67.0" pickOnBounds="true" preserveRatio="true">
                     <image>
-                        <Image url="@../../../images/exit.png" />
+                        <Image url="@images/exit.png" />
                     </image>
                 </ImageView>
             </graphic>
@@ -72,17 +72,17 @@
         </Text>
         <ImageView blendMode="LIGHTEN" fitHeight="39.0" fitWidth="142.0" layoutX="209.0" layoutY="319.0" opacity="0.45" pickOnBounds="true" preserveRatio="true">
             <image>
-                <Image url="@../../../images/Will.jpg" />
+                <Image url="@images/Will.jpg" />
             </image>
         </ImageView>
         <ImageView fitHeight="44.0" fitWidth="142.0" layoutX="350.0" layoutY="319.0" opacity="0.45" pickOnBounds="true" preserveRatio="true">
             <image>
-                <Image url="@../../../images/Hero.jpg" />
+                <Image url="@images/Hero.jpg" />
             </image>
         </ImageView>
       <ImageView fx:id="pause_hero" fitHeight="22.0" fitWidth="31.0" layoutX="342.0" layoutY="297.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../images/Helmet3.png" />
+            <Image url="@Helmet3.png" />
          </image>
       </ImageView>
     </children>

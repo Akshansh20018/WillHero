@@ -12,12 +12,12 @@
     <children>
         <ImageView fitHeight="370.0" fitWidth="700.0" layoutX="1.0" pickOnBounds="true">
             <image>
-                <Image url="@../../../images/bg.jpg" />
+                <Image url="@images/bg.jpg" />
             </image>
         </ImageView>
         <ImageView fitHeight="270.0" fitWidth="320.0" layoutX="175.0" layoutY="105.0" opacity="0.54" pickOnBounds="true" preserveRatio="true">
             <image>
-                <Image url="@../../../images/title.jpg" />
+                <Image url="@images/title.jpg" />
             </image>
         </ImageView>
         <Text layoutX="261.0" layoutY="56.0" strokeType="OUTSIDE" strokeWidth="0.0" text="High Score" wrappingWidth="197.16680908203125">
@@ -27,7 +27,7 @@
         </Text>
         <ImageView fx:id="BackButton" fitHeight="51.0" fitWidth="85.0" layoutX="9.0" layoutY="305.0" onMouseClicked="#BackButtonPressed" pickOnBounds="true" preserveRatio="true">
             <image>
-                <Image url="@../../../images/back-removebg-preview.png" />
+                <Image url="@images/back-removebg-preview.png" />
             </image>
         </ImageView>
         <TableView layoutX="60.0" layoutY="80.0" prefHeight="250.0" prefWidth="600.0" style="-fx-background-color: transparent;">
