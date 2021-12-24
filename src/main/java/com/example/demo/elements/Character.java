@@ -13,7 +13,7 @@ public class Character extends Game_Objects {
     protected void set_Jump_speed(int speed ){this.jump_speed=speed;}
 
         public void jump(){
-        System.out.println("Orc is jumping");
+
         vertical_jump(Image,-25,true,jump_speed).play();}
 
 

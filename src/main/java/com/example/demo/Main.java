@@ -55,7 +55,7 @@ public class Main extends Application {
     public static void StartGame() throws IOException {
         //Insert code to setup PlayGame Application fxml file;
         AnchorPane root = (AnchorPane) FXMLLoader.load(Main.class.getResource("PlayGamePage.fxml"));
-       ArrayList<Platform> Obstacles = new ArrayList<Platform>();
+
 /*
         Image orco = new Image(requireNonNull(HelloApplication.class.getResourceAsStream("images/exit.png")));
         ImageView img= new ImageView();
@@ -71,18 +71,7 @@ public class Main extends Application {
         int temp= root.getChildren().size();
         root.getChildren().get(temp-2).toFront();
         vertical_jump(orc.get_Image(),-25,true,450).play();*/
-        Platform plat = new Platform();
-        Pane pane = plat.get_Platform();
-        Obstacles.add(plat);
-       // Pane pane=  FXMLLoader.load(HelloApplication.class.getResource("hi.fxml"));
 
-        // Pane pane = FXMLLoader.load(Objects.requireNonNull(HelloApplication.class.getResource(".fxml")));
-        AnchorPane.setTopAnchor(pane, -40.0);
-        AnchorPane.setLeftAnchor(pane, 100.0);
-        AnchorPane.setRightAnchor(pane, 110.0);
-        AnchorPane.setBottomAnchor(pane, 200.0);
-
-        root.getChildren().add(pane);
 
 
         Scene scene = new Scene(root, 700, 370);
