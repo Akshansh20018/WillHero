@@ -15,6 +15,7 @@ public class Orc extends Character {
 
     private Rectangle bottom;
     private Rectangle left;
+    private Rectangle top;
 
     public Orc(){
         Random rand= new Random();
@@ -46,6 +47,14 @@ public class Orc extends Character {
         bottom.setFill(Color.HOTPINK);
         bottom.setHeight(2);
         dadada.getChildren().add(bottom);
+
+        top= new Rectangle();
+        top.setX(0);
+        top.setY(0);
+        top.setWidth(50);
+        top.setFill(Color.HOTPINK);
+        top.setHeight(2);
+        dadada.getChildren().add(top);
 
         left= new Rectangle();
         left.setX(0);

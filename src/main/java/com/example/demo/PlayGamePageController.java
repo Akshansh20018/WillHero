@@ -161,7 +161,7 @@ public class PlayGamePageController implements Initializable {
 
             Obstacle obstacle = Obstacles.get(i);
 
-            obstacle.translate_obstacle(-200,0,20);
+            obstacle.translate_obstacle(-200,0,100);
 //            Bounds bound = obstacle.get_Top().localToScreen(obstacle.get_Top().getBoundsInLocal());
 
 //            if(bound.getMaxX()<0)
@@ -190,9 +190,11 @@ public class PlayGamePageController implements Initializable {
     public void hasCollided(ImageView img, Rectangle rect) throws InterruptedException {
         if(img.localToScreen(img.getBoundsInLocal()).intersects(rect.localToScreen(rect.getBoundsInLocal()))) {
             System.out.println("Platform collision found");
-            Thread t= new MyThread(hero, hero_falling);
-            t.start();
-            t.join();
+            hero_jump(hero.getImg()).play();
+            hero_falling.pause();
+//            Thread t= new MyThread(hero, hero_falling);
+//            t.start();
+//            t.join();
 //            hero_falling.play();
 
         }
