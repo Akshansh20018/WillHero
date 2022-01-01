@@ -7,6 +7,7 @@ import com.example.demo.elements.Hero;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.geometry.Bounds;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -113,6 +114,7 @@ public class PlayGamePageController implements Initializable {
         pane =obstacle.getAnchor_pane();
         Obstacles.add(obstacle);
 
+
         //AnchorPane.setTopAnchor(pane, add_from_y);
         //AnchorPane.setLeftAnchor(pane, add_from_x);
         pane.setLayoutX(add_from_x);
@@ -151,8 +153,11 @@ public class PlayGamePageController implements Initializable {
             Obstacle obstacle = Obstacles.get(i);
 
             obstacle.translate_obstacle(-200,0,20);
-           obstacle.setCoordinate(obstacle.getCoordinate()-200);
+            Bounds bound = obstacle.get_Top().localToScreen(obstacle.get_Top().getBoundsInLocal());
 
+            if(bound.getMaxX()<0)
+            {Obstacles.remove(obstacle);
+                }
 
 
 
@@ -162,7 +167,9 @@ public class PlayGamePageController implements Initializable {
 
 
         }
+
         add_obstacle(-1);
+
 
 
 

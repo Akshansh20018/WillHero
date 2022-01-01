@@ -3,6 +3,7 @@ package com.example.demo.elements;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 
@@ -168,8 +169,8 @@ public class Obstacle {
     }
 
 
-    public AnchorPane getAnchor_pane() {
-        return anchor_pane;
+    public Rectangle get_Top() {
+        return top ;
     }
 
     public void setCoordinate(double coordinate) {
@@ -188,4 +189,7 @@ public class Obstacle {
     }
 
 
+    public Pane getAnchor_pane() {
+        return this.anchor_pane;
+    }
 }
