@@ -16,7 +16,7 @@ public class Hero extends Character{
        img.setPreserveRatio(true);
        set_Image(img);
 
-       vertical_jump(img,-80,true,700).play();
+//       vertical_jump(img,-80,true,700).play();
     }
 
 }

@@ -18,7 +18,26 @@ public class CommonAnimation {
 
         return load;
     }
+
     public static TranslateTransition vertical_jump(Node node, int n, boolean rev, int time) {
+        TranslateTransition t= new TranslateTransition();
+        t.setNode(node);
+        t.setByY(n);
+        t.setAutoReverse(rev);
+        t.setDuration(Duration.millis(time));
+        t.setCycleCount(TranslateTransition.INDEFINITE);
+        return t;
+    }
+
+    public static TranslateTransition hero_jump(Node node, int n, boolean rev, int time) {
+        TranslateTransition t= new TranslateTransition();
+        t.setNode(node);
+        t.setByY(n);
+        t.setAutoReverse(rev);
+        t.setDuration(Duration.millis(time));
+        return t;
+    }
+    public static TranslateTransition hero_drop(Node node, int n, boolean rev, int time) {
         TranslateTransition t= new TranslateTransition();
         t.setNode(node);
         t.setByY(n);

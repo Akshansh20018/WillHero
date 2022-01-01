@@ -25,9 +25,11 @@ public class Platform {
       int platform_type= rand.nextInt(2);
         get_platform_from_choice(platform_type);
     }
+
     public Platform(int choice){
         get_platform_from_choice(choice);
     }
+
     private void get_platform_from_choice(int platform_type ){
         if(platform_type>=4 || platform_type<0){
             System.out.println("invalid choice for platform");

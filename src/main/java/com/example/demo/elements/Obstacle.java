@@ -32,6 +32,7 @@ public class Obstacle {
     public Obstacle(int choice){
         get_obstacle_from_choice(choice);
     }
+
     private void get_obstacle_from_choice(int obstacle_type ){
         if(obstacle_type>=3 || obstacle_type<0){
             System.out.println("invalid choice for platform");
@@ -39,7 +40,6 @@ public class Obstacle {
         }
 
         if(obstacle_type==0){
-
             create_obstacle_0();
         }
         if(obstacle_type==1){
