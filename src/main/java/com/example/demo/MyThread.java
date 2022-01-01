@@ -1,10 +1,13 @@
 package com.example.demo;
 
+import com.example.demo.elements.Hero;
+import javafx.animation.TranslateTransition;
+
+import static com.example.demo.CommonAnimation.hero_jump;
+
 public class MyThread extends Thread{
-    MyThread() {
-        System.out.println("Hello");
-    }
-    public void run() {
-        System.out.println("Test12");
+    MyThread(Hero hero, TranslateTransition t) {
+        t.pause();
+        hero_jump(hero.getImg()).play();
     }
 }

@@ -4,6 +4,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.paint.Color;
+import javafx.scene.shape.Rectangle;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -12,11 +14,11 @@ import java.util.Random;
 import static com.example.demo.CommonAnimation.runTranslateTransition;
 import static java.util.Objects.requireNonNull;
 
-public class Platform {
+public class Platform extends Game_Objects{
 
-    AnchorPane anchor_pane;
-
+    private AnchorPane anchor_pane;
     private ImageView img;
+    private Rectangle top;
 
     public Platform() throws IOException {
 
@@ -47,6 +49,7 @@ public class Platform {
             create_platform_2();
         }
     }
+
     private void create_platform_0(){
         anchor_pane=new AnchorPane();
 
@@ -56,12 +59,21 @@ public class Platform {
         obj.setFitWidth(200);
         obj.setFitHeight(300);
         obj.setPreserveRatio(false);
-        this.img=obj;
 
+        anchor_pane.getChildren().add(obj);
+        set_Image(anchor_pane);
+
+        top = new Rectangle();
+        top.setX(17);
+        top.setY(120);
+        top.setWidth(140);
+        top.setFill(Color.DARKBLUE);
+        top.setHeight(2);
+        anchor_pane.getChildren().add(top);
     }
 
     private void create_platform_1(){
-
+        anchor_pane=new AnchorPane();
 
         ImageView obj=new ImageView();
         Image plat=new Image(requireNonNull(getClass().getResourceAsStream("Platform2.png")));
@@ -69,26 +81,42 @@ public class Platform {
         obj.setFitWidth(500);
         obj.setFitHeight(300);
         obj.setPreserveRatio(false);
-        this.img=obj;
 
+        anchor_pane.getChildren().add(obj);
+        set_Image(anchor_pane);
 
-
-
-
+        top = new Rectangle();
+        top.setX(43);
+        top.setY(135);
+        top.setWidth(420);
+        top.setFill(Color.DARKBLUE);
+        top.setHeight(2);
+        anchor_pane.getChildren().add(top);
     }
     private void create_platform_2(){
+        anchor_pane=new AnchorPane();
+
         ImageView obj=new ImageView();
         Image plat=new Image(requireNonNull(getClass().getResourceAsStream("Platform3.png")));
         obj.setImage(plat);
         obj.setFitWidth(200);
         obj.setFitHeight(280);
         obj.setPreserveRatio(false);
-        this.img=obj;
 
+        anchor_pane.getChildren().add(obj);
+        set_Image(anchor_pane);
+
+        top = new Rectangle();
+        top.setX(13);
+        top.setY(102);
+        top.setWidth(170);
+        top.setFill(Color.DARKBLUE);
+        top.setHeight(2);
+        anchor_pane.getChildren().add(top);
     }
 
-    public ImageView getImage() {
-        return img;
+    public Rectangle getTop() {
+        return top;
     }
 
 }

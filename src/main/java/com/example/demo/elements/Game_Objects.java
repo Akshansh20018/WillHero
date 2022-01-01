@@ -1,13 +1,14 @@
 package com.example.demo.elements;
 
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.AnchorPane;
 
 public class Game_Objects {
-    ImageView Image;
-    protected void set_Image(ImageView Image ){
+    AnchorPane Image;
+    protected void set_Image(AnchorPane Image ){
         this.Image = Image;
     }
-    public ImageView get_Image(){
+    public AnchorPane get_Image(){
         return this.Image;
     }
 }

@@ -5,6 +5,7 @@ import com.example.demo.elements.Obstacle;
 import com.example.demo.elements.Platform;
 import com.example.demo.elements.Hero;
 import javafx.animation.AnimationTimer;
+import javafx.animation.TranslateTransition;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -14,6 +15,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
+import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
 
 import java.io.IOException;
@@ -39,7 +41,7 @@ public class PlayGamePageController implements Initializable {
     private ImageView cloud_4;
 
     @FXML
-    private ImageView hee;
+    private AnchorPane hee;
 
     @FXML
     private Hero hero;
@@ -70,6 +72,7 @@ public class PlayGamePageController implements Initializable {
     private int score;
     private boolean helper= false;
 
+    private TranslateTransition hero_falling;
 
 
 
@@ -99,13 +102,13 @@ public class PlayGamePageController implements Initializable {
     public void add_obstacle(int choice)  {
         Obstacle obstacle = null;
         if(choice==0){
-        obstacle = new Obstacle(0);}
+        obstacle = new Obstacle(0, hero);}
         else if(choice==1){
-            obstacle = new Obstacle(1);
+            obstacle = new Obstacle(1, hero);
         }
         else {
             try {
-                obstacle= new Obstacle();
+                obstacle= new Obstacle(hero);
 
             } catch (IOException e) {
                 e.printStackTrace();
@@ -159,32 +162,39 @@ public class PlayGamePageController implements Initializable {
             Obstacle obstacle = Obstacles.get(i);
 
             obstacle.translate_obstacle(-200,0,20);
-            Bounds bound = obstacle.get_Top().localToScreen(obstacle.get_Top().getBoundsInLocal());
+//            Bounds bound = obstacle.get_Top().localToScreen(obstacle.get_Top().getBoundsInLocal());
 
-            if(bound.getMaxX()<0)
-            {Obstacles.remove(obstacle);
-                }
+//            if(bound.getMaxX()<0)
+//            {Obstacles.remove(obstacle);
+//                }
         }
         add_obstacle(-1);
     }
 
     AnimationTimer timer= new AnimationTimer() {
-        double myTime= 0.0;
-        int dir= 1;
-        double velocityY= 0;
-        double damp= 0.7;
-        double gravity= 15.8;
-        double prevVel= 0;
-        int counter= 0;
         @Override
         public void handle(long l) {
-            runTranslateTransition(hee, 0, 22.8571428, 80).play();
-//            if(helper== true) {
-//                helper= false;
-//            }
+            hero_falling= hero_drop(hee, 0, 22.8571428, 150);
+            hero_falling.play();
+            int temp= Obstacles.size();
+            for(int i=0; i<temp; i++) {
+                try {
+                    hasCollided(hero.getImg(), Obstacles.get(i).getPlat().getTop());
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
         }
     };
 
-//    Boolean checkCollision(ImageView img1, ImageView img2) {
-//    }
+    public void hasCollided(ImageView img, Rectangle rect) throws InterruptedException {
+        if(img.localToScreen(img.getBoundsInLocal()).intersects(rect.localToScreen(rect.getBoundsInLocal()))) {
+            System.out.println("Platform collision found");
+            Thread t= new MyThread(hero, hero_falling);
+            t.start();
+            t.join();
+//            hero_falling.play();
+
+        }
+    }
 }

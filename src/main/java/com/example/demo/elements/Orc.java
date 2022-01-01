@@ -2,6 +2,9 @@ package com.example.demo.elements;
 
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.paint.Color;
+import javafx.scene.shape.Rectangle;
 
 import java.util.Random;
 
@@ -9,7 +12,10 @@ import static java.util.Objects.requireNonNull;
 
 
 public class Orc extends Character {
-    //coin,
+
+    private Rectangle bottom;
+    private Rectangle left;
+
     public Orc(){
         Random rand= new Random();
         int orc_type= rand.nextInt(4);
@@ -28,7 +34,27 @@ public class Orc extends Character {
         img.setImage(orco);
         img.setFitWidth(50);
         img.setPreserveRatio(true);
-        set_Image(img);
+
+        AnchorPane dadada= new AnchorPane();
+        dadada.getChildren().add(img);
+        set_Image(dadada);
+
+        bottom= new Rectangle();
+        bottom.setX(0);
+        bottom.setY(45);
+        bottom.setWidth(50);
+        bottom.setFill(Color.HOTPINK);
+        bottom.setHeight(2);
+        dadada.getChildren().add(bottom);
+
+        left= new Rectangle();
+        left.setX(0);
+        left.setY(0);
+        left.setHeight(45);
+        left.setFill(Color.BROWN);
+        left.setWidth(2);
+        dadada.getChildren().add(left);
+
         //speed range between 500 600
         set_Jump_speed(rand.nextInt(100)+500);
         jump();
