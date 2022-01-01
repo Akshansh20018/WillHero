@@ -49,6 +49,16 @@ public class CommonAnimation {
         t.setCycleCount(TranslateTransition.INDEFINITE);
         return t;
     }
+    public static TranslateTransition ver_move(Node node, int n, int delay, boolean rev, int time) {
+        TranslateTransition t= new TranslateTransition();
+        t.setNode(node);
+        t.setByY(n);
+        t.setDelay(Duration.millis(delay));
+        t.setAutoReverse(rev);
+        t.setDuration(Duration.millis(time));
+        t.setCycleCount(TranslateTransition.INDEFINITE);
+        return t;
+    }
 
     public static FadeTransition fade(Node node, int from, int to) {
         FadeTransition fadeTransition = new FadeTransition();

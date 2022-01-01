@@ -19,6 +19,7 @@ import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
 
 import java.io.IOException;
+import java.net.URISyntaxException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Random;
@@ -93,10 +94,17 @@ public class PlayGamePageController implements Initializable {
         hor_move(cloud_2, -1000, 5000, false, 12000).play();
         hor_move(cloud_3, -990, 1000, false, 12000).play();
         hor_move(cloud_4, -1100, 5000, false, 12000).play();
+        //ver_move(hee,800, 150,false , 12000).play();
+        //hero_drop(hee, 0, 22.8571428, 150).play();
         add_obstacle(0);
         add_obstacle(1);
         add_obstacle(-1);
-        timer.start();
+       timer.start();
+        try {
+            PlaySound.PlayBackGround();
+        } catch (URISyntaxException e) {
+            e.printStackTrace();
+        }
     }
 
     public void add_obstacle(int choice)  {
@@ -147,12 +155,12 @@ public class PlayGamePageController implements Initializable {
     public void resumeClicked(ActionEvent event) throws IOException {
         //pause func back button fade
         runTranslateTransition(pause_screen, 0, -377, 2000).play();
-//
+
     }
 
     public void Play(){
         helper= true;
-//        runTranslateTransition(hee,0,-80,1).play();
+        //runTranslateTransition(hee,0,-80,1).play();
         score++;
         Score.setText(Integer.toString(score));
         int i;
@@ -174,12 +182,13 @@ public class PlayGamePageController implements Initializable {
     AnimationTimer timer= new AnimationTimer() {
         @Override
         public void handle(long l) {
-            hero_falling= hero_drop(hee, 0, 22.8571428, 150);
-            hero_falling.play();
-            int temp= Obstacles.size();
-            for(int i=0; i<temp; i++) {
+          hero_falling= hero_drop(hee, 0, 22.8571428, 150);
+          hero_falling.play();
+            //int temp= Obstacles.size();
+
+            for(Obstacle obs : Obstacles) {
                 try {
-                    hasCollided(hero.getImg(), Obstacles.get(i).getPlat().getTop());
+                    obs.getPlat().hasCollided(hero.getImg() , hero_falling);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
@@ -187,16 +196,5 @@ public class PlayGamePageController implements Initializable {
         }
     };
 
-    public void hasCollided(ImageView img, Rectangle rect) throws InterruptedException {
-        if(img.localToScreen(img.getBoundsInLocal()).intersects(rect.localToScreen(rect.getBoundsInLocal()))) {
-            System.out.println("Platform collision found");
-            hero_jump(hero.getImg()).play();
-            hero_falling.pause();
-//            Thread t= new MyThread(hero, hero_falling);
-//            t.start();
-//            t.join();
-//            hero_falling.play();
 
-        }
     }
-}

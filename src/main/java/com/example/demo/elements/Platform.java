@@ -1,5 +1,6 @@
 package com.example.demo.elements;
 
+import javafx.animation.TranslateTransition;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -11,7 +12,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Random;
 
-import static com.example.demo.CommonAnimation.runTranslateTransition;
+import static com.example.demo.CommonAnimation.*;
 import static java.util.Objects.requireNonNull;
 
 public class Platform extends Game_Objects{
@@ -117,6 +118,18 @@ public class Platform extends Game_Objects{
 
     public Rectangle getTop() {
         return top;
+    }
+    public void hasCollided(ImageView img , TranslateTransition fall) throws InterruptedException {
+        Rectangle rect = top;
+
+        if(img.localToScreen(img.getBoundsInLocal()).intersects(rect.localToScreen(rect.getBoundsInLocal()))) {
+            System.out.println("Platform collision found");
+            fall.pause();
+            //runTranslateTransition(hero.get_Image(),0,-50,200).play();
+            //ver_move(img,800, 150,false , 12000).play();
+            hero_jump(img).play();
+
+        }
     }
 
 }
