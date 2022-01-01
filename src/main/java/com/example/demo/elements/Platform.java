@@ -1,6 +1,7 @@
 package com.example.demo.elements;
 
 import javafx.fxml.FXMLLoader;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 
@@ -12,10 +13,10 @@ import static com.example.demo.CommonAnimation.runTranslateTransition;
 import static java.util.Objects.requireNonNull;
 
 public class Platform {
-    ArrayList<ImageView> content=new ArrayList<ImageView>();
+
     AnchorPane anchor_pane;
-    public double length;
-    public double coordinate;
+
+    private ImageView img;
 
     public Platform() throws IOException {
 
@@ -32,6 +33,7 @@ public class Platform {
             System.out.println("invalid choice for platform");
             return;
         }
+
         if(platform_type==0){
 
             create_platform_0();
@@ -39,81 +41,52 @@ public class Platform {
         if(platform_type==1){
             create_platform_1();
         }
+        if(platform_type==2){
+            create_platform_2();
+        }
     }
     private void create_platform_0(){
-        try {
-            anchor_pane=  FXMLLoader.load(getClass().getResource("Obstacle_1.fxml"));
-        }catch(Exception e){
-            System.out.println("image not loaded");
-        }
+        anchor_pane=new AnchorPane();
 
-        //System.out.println("Image loaded");
-            /*ImageView img= new ImageView();
-            img.setImage(plat);
-            img.setFitWidth(100);
-            img.setPreserveRatio(true);
-            vBox.getChildren().add(img);
-            Orc orc= new Orc();
+        ImageView obj=new ImageView();
+        Image plat=new Image(requireNonNull(getClass().getResourceAsStream("Platform1.png")));
+        obj.setImage(plat);
+        obj.setFitWidth(200);
+        obj.setFitHeight(300);
+        obj.setPreserveRatio(false);
+        this.img=obj;
 
-            anchor_pane.getChildren().add(orc.get_Image());*/
-        this.length = 115;
     }
 
     private void create_platform_1(){
-        Random rand= new Random();
-        try {
-            anchor_pane=  FXMLLoader.load(getClass().getResource("Obstacle_2.fxml"));
-        }catch(Exception e){
-            System.out.println("image not loaded");
-        }
 
 
-        double x = 0;
-        int choice=2;
-             /*0->nothing
-               1-> Orc
-               2-> Chest*/
-
-        ImageView obj=null;
-        for(int i=0 ; i<4 ; i++) {
-            x=x+100;
-            choice= rand.nextInt(3);
-
-            if (choice == 0) {
-                continue;
-            }
-            if (choice == 1) {
-                Orc orc = new Orc();
-                obj = orc.get_Image();
-            }
-            if (choice == 2) {
-                Weapon_chest chest = new Weapon_chest();
-                obj = chest.get_Image();
-            }
-            content.add(obj);
-            AnchorPane.setTopAnchor(obj, 197.0);
-            AnchorPane.setLeftAnchor(obj, x);
-            AnchorPane.setRightAnchor(obj, 110.0);
-            AnchorPane.setBottomAnchor(obj, 200.0);
+        ImageView obj=new ImageView();
+        Image plat=new Image(requireNonNull(getClass().getResourceAsStream("Platform2.png")));
+        obj.setImage(plat);
+        obj.setFitWidth(500);
+        obj.setFitHeight(300);
+        obj.setPreserveRatio(false);
+        this.img=obj;
 
 
-            anchor_pane.getChildren().add(obj);
-            this.length=400;
-        }
+
+
 
     }
-    public AnchorPane get_Platform(){
-        return  this.anchor_pane;
-    }
-    public void setCoordinate(double x){
-        coordinate=x;
-    }
-    public double getCoordinate(){
-        return coordinate;
-    }
-    public void translate_platform(double x , double y ,double duration){
+    private void create_platform_2(){
+        ImageView obj=new ImageView();
+        Image plat=new Image(requireNonNull(getClass().getResourceAsStream("Platform3.png")));
+        obj.setImage(plat);
+        obj.setFitWidth(200);
+        obj.setFitHeight(280);
+        obj.setPreserveRatio(false);
+        this.img=obj;
 
-        runTranslateTransition(anchor_pane,x,y,duration).play();
+    }
+
+    public ImageView getImage() {
+        return img;
     }
 
 }

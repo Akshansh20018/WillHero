@@ -7,7 +7,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane fx:id="Anchor" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#Play" prefHeight="370.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.PlayGamePageController">
+<AnchorPane fx:id="Anchor" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#Play" prefHeight="370.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.PlayGamePageController">
     <children>
       <ImageView fitHeight="370.0" fitWidth="700.0" pickOnBounds="true">
          <image>
@@ -39,16 +39,11 @@
             <Image url="@images/pause_button-removebg-preview.png" />
          </image>
       </ImageView>
-      <Text fx:id="Score" fill="#615858" layoutX="337.0" layoutY="43.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" wrappingWidth="25.30279541015625">
+      <Text fx:id="Score" fill="#615858" layoutX="361.0" layoutY="42.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" textAlignment="CENTER" wrappingWidth="68.50274658203125">
          <font>
             <Font name="Haettenschweiler" size="46.0" />
          </font>
       </Text>
-      <ImageView fx:id="hero" fitHeight="52.0" fitWidth="68.0" layoutX="44.0" layoutY="159.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@images/bear_character-removebg-preview.png" />
-         </image>
-      </ImageView>
       <Pane fx:id="pane" layoutX="-227.0" layoutY="246.0" prefHeight="200.0" prefWidth="200.0" />
     </children>
 </AnchorPane>

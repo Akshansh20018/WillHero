@@ -1,8 +1,9 @@
 package com.example.demo.elements;
 
+
 import javafx.scene.image.ImageView;
 
-import static com.example.demo.CommonAnimation.vertical_jump;
+import static com.example.demo.CommonAnimation.*;
 
 
 public class Character extends Game_Objects {
