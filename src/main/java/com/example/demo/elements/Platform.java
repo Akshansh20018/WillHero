@@ -70,6 +70,7 @@ public class Platform extends Game_Objects{
         top.setWidth(140);
         top.setFill(Color.DARKBLUE);
         top.setHeight(2);
+        top.setVisible(false);
         anchor_pane.getChildren().add(top);
     }
 
@@ -92,8 +93,10 @@ public class Platform extends Game_Objects{
         top.setWidth(420);
         top.setFill(Color.DARKBLUE);
         top.setHeight(2);
+        top.setVisible(false);
         anchor_pane.getChildren().add(top);
     }
+
     private void create_platform_2(){
         anchor_pane=new AnchorPane();
 
@@ -113,22 +116,22 @@ public class Platform extends Game_Objects{
         top.setWidth(170);
         top.setFill(Color.DARKBLUE);
         top.setHeight(2);
+        top.setVisible(false);
         anchor_pane.getChildren().add(top);
     }
 
     public Rectangle getTop() {
         return top;
     }
+
     public void hasCollided(ImageView img , TranslateTransition fall) throws InterruptedException {
         Rectangle rect = top;
 
         if(img.localToScreen(img.getBoundsInLocal()).intersects(rect.localToScreen(rect.getBoundsInLocal()))) {
-            System.out.println("Platform collision found");
             fall.pause();
             //runTranslateTransition(hero.get_Image(),0,-50,200).play();
             //ver_move(img,800, 150,false , 12000).play();
             hero_jump(img).play();
-
         }
     }
 

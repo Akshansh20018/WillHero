@@ -45,5 +45,15 @@
          </font>
       </Text>
       <Pane fx:id="pane" layoutX="-227.0" layoutY="246.0" prefHeight="200.0" prefWidth="200.0" />
+      <Text fx:id="Score1" fill="#615858" layoutX="610.0" layoutY="20.0" strokeType="OUTSIDE" strokeWidth="0.0" text="coins: " textAlignment="CENTER" wrappingWidth="68.50274658203114">
+         <font>
+            <Font name="Berlin Sans FB Demi Bold" size="20.0" />
+         </font>
+      </Text>
+      <Text fx:id="Coins" fill="#615858" layoutX="652.0" layoutY="21.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" textAlignment="CENTER" wrappingWidth="68.50274658203114">
+         <font>
+            <Font name="Berlin Sans FB Demi Bold" size="20.0" />
+         </font>
+      </Text>
     </children>
 </AnchorPane>

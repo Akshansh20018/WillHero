@@ -16,7 +16,7 @@ import static com.example.demo.CommonAnimation.runTranslateTransition;
 import static java.util.Objects.requireNonNull;
 
 public class Obstacle {
-    ArrayList<Game_Objects> content=new ArrayList<Game_Objects>();
+    private ArrayList<Game_Objects> content=new ArrayList<Game_Objects>();
 //    Rectangle top;
     AnchorPane anchor_pane;
     public double length;
@@ -69,9 +69,6 @@ public class Obstacle {
         AnchorPane.setLeftAnchor(obj, 65.0);
         anchor_pane.getChildren().add(obj);
         this.length=140;
-
-
-
     }
 
     private void create_obstacle_1(){
@@ -100,36 +97,35 @@ public class Obstacle {
                 choice=1+ rand.nextInt(2);
 
             }
-
+//Adding here
+            choice= 0;
             if (choice == 0) {
 
                 chest_found=true;
                 Chest chest = null;
 
-
                 choice=rand.nextInt(2);
+//                choice= 1;
                 if(choice==1){
                     chest = new Weapon_chest();
-
                 }
                 else if(choice==0){
                     chest = new Coin_chest();
-
                 }
                 obj = chest.get_Image();
                 content.add(chest);
-
             }
-            if (choice == 1) {
+
+            else if (choice == 1) {
                 Orc orc = new Orc();
                 obj = orc.get_Image();
                 content.add(orc);
             }
-            if (choice == 2) {
+
+            else if (choice == 2) {
                 Orc orc = new Orc();
                 obj = orc.get_Image();
                 content.add(orc);
-
             }
 
             AnchorPane.setTopAnchor(obj, 200.0);
@@ -189,4 +185,7 @@ public class Obstacle {
         return this.plat;
     }
 
+    public ArrayList<Game_Objects> getGameObjects() {
+        return content;
+    }
 }

@@ -47,30 +47,30 @@ public class PlayGamePageController implements Initializable {
     @FXML
     private Hero hero;
 
-
     @FXML
     private AnchorPane Anchor;
-
 
     @FXML
     private Button resume;
 
-
     @FXML
     private AnchorPane pause_screen;
-
-
 
     @FXML
     private ImageView pause_image;
 
     @FXML
     private Text Score;
+
+    @FXML
+    private Text Coins;
+
     private ArrayList<Obstacle> Obstacles = new ArrayList<Obstacle>();
     private double add_from_x = -40;
     private double add_from_y = -30;
     private Pane pane;
     private int score;
+    private int coins;
     private boolean helper= false;
 
     private TranslateTransition hero_falling;
@@ -88,6 +88,7 @@ public class PlayGamePageController implements Initializable {
         Anchor.getChildren().add(hee);
 
         score=0;
+        coins= 0;
 
 //        vertical_jump(hee,-80,true,700).play();
         hor_move(cloud_1, -900, 1000, false, 12000).play();
@@ -162,7 +163,11 @@ public class PlayGamePageController implements Initializable {
         helper= true;
         //runTranslateTransition(hee,0,-80,1).play();
         score++;
+        coins= hero.getCoins();
+
         Score.setText(Integer.toString(score));
+        Coins.setText(Integer.toString(coins));
+
         int i;
         for( i=0 ; i< Obstacles.size() ; i++){
 
@@ -191,6 +196,14 @@ public class PlayGamePageController implements Initializable {
                     obs.getPlat().hasCollided(hero.getImg() , hero_falling);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
+                }
+                ArrayList<Game_Objects> obj_temp= obs.getGameObjects();
+                for(Game_Objects game_obj : obj_temp) {
+                    try {
+                        game_obj.hasCollided(hero, hero_falling);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
                 }
             }
         }
