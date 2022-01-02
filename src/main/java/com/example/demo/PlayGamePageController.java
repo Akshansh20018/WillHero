@@ -13,6 +13,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.geometry.Bounds;
+import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -33,7 +34,7 @@ import static com.example.demo.Main.*;
 
 import static com.example.demo.CommonAnimation.*;
 
-public class PlayGamePageController implements Initializable {
+public class PlayGamePageController implements Initializable{
 
     @FXML
     private ImageView cloud_1;
@@ -60,6 +61,15 @@ public class PlayGamePageController implements Initializable {
     private Button resume;
 
     @FXML
+    private Button revive;
+
+    @FXML
+    private Button exit;
+
+    @FXML
+    private Button exit1;
+
+    @FXML
     private AnchorPane pause_screen;
 
     @FXML
@@ -70,6 +80,12 @@ public class PlayGamePageController implements Initializable {
 
     @FXML
     private Text Coins;
+
+    @FXML
+    private AnchorPane death_screen;
+
+    @FXML
+    private Text message;
 
 //    @FXML
 //    private Rectangle end_check;
@@ -86,6 +102,7 @@ public class PlayGamePageController implements Initializable {
     private ArrayList<Game_Objects> obj_temp= new ArrayList<Game_Objects>();
     private Boolean boss_spawned=false;
     private Rectangle end_check;
+    private int flag= 0;
 
 
     @Override
@@ -122,6 +139,7 @@ public class PlayGamePageController implements Initializable {
         add_obstacle(0);
         add_obstacle(1);
         add_obstacle(-1);
+        message.setVisible(false);
 
        timer.start();
         try {
@@ -186,16 +204,53 @@ public class PlayGamePageController implements Initializable {
 
     public void pauseClicked() throws IOException {
         //pause func back button fade
-        //runTranslateTransition(pause_screen, 0, 377, 2000).play();
+//        Node temp= Anchor.getChildren().get(0);
+//        Anchor.getChildren().remove(0);
+//        Anchor.getChildren().add(temp);
+        runTranslateTransition(pause_screen, 0, 377, 2000).play();
+        pause_screen.toFront();
         System.out.println("hello mic test");
     }
 
     public void resumeClicked(ActionEvent event) throws IOException {
         //pause func back button fade
         runTranslateTransition(pause_screen, 0, -377, 2000).play();
-
     }
 
+    public void exitClicked(ActionEvent event) throws IOException {
+        //pause func back button fade
+//        runTranslateTransition(pause_screen, 0, -377, 2000).play();
+//        Main.LoadExitScreen();
+        timer.stop();
+        try {
+            LoadExitScreen();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void reviveClicked(ActionEvent event) throws IOException {
+        if(hero.getCoins()>=25 && flag==0) {
+            hero.setCoins(hero.getCoins());
+            coins= hero.getCoins();
+            Coins.setText(Integer.toString(coins));
+            runTranslateTransition(death_screen, 0, 377, 2000).play();
+            hero.revive();
+            delay(10).play();
+            timer.start();
+            flag++;
+        }
+        else {
+            message.setVisible(true);
+            timer.stop();
+            delay(2000).play();
+            try {
+                LoadExitScreen();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }
     public void Play(){
 
         helper= true;
@@ -258,7 +313,9 @@ public class PlayGamePageController implements Initializable {
         //timer.stop();
 
         System.out.println("Game is over");
-        Main.LoadExitScreen();
+//        Main.LoadExitScreen();
+        death_screen.toFront();
+        runTranslateTransition(death_screen, 0, -377, 2000).play();
     }
 
     public boolean GameEnd_check() {

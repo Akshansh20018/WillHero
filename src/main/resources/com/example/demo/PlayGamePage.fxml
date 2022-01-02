@@ -1,14 +1,94 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
 <AnchorPane fx:id="Anchor" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#Play" onMouseExited="#pauseClicked" prefHeight="370.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.PlayGamePageController">
     <children>
+      <AnchorPane fx:id="pause_screen" layoutY="-379.0" opacity="0.79" prefHeight="377.0" prefWidth="700.0" style="-fx-background-color: black;">
+         <children>
+            <Text fill="#fafafa" layoutX="14.0" layoutY="59.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Paused">
+               <font>
+                  <Font name="Berlin Sans FB" size="50.0" />
+               </font>
+            </Text>
+            <Button fx:id="resume" layoutX="91.0" layoutY="168.0" mnemonicParsing="false" onAction="#resumeClicked" opacity="0.5" prefHeight="55.0" prefWidth="55.0">
+               <graphic>
+                  <ImageView fitHeight="55.0" fitWidth="67.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/resume.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button fx:id="save" layoutX="239.0" layoutY="168.0" mnemonicParsing="false" opacity="0.5" prefHeight="55.0" prefWidth="55.0">
+               <graphic>
+                  <ImageView fitHeight="55.0" fitWidth="67.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/save.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button fx:id="restart" layoutX="393.0" layoutY="168.0" mnemonicParsing="false" opacity="0.5" prefHeight="55.0" prefWidth="55.0">
+               <graphic>
+                  <ImageView fitHeight="55.0" fitWidth="67.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/restart.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button fx:id="exit" layoutX="542.0" layoutY="168.0" mnemonicParsing="false" onAction="#exitClicked" opacity="0.5" prefHeight="55.0" prefWidth="55.0">
+               <graphic>
+                  <ImageView fitHeight="55.0" fitWidth="67.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/exit.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Text fill="WHITE" layoutX="94.0" layoutY="255.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Resume">
+               <font>
+                  <Font name="Berlin Sans FB" size="20.0" />
+               </font>
+            </Text>
+            <Text fill="WHITE" layoutX="254.0" layoutY="256.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Save">
+               <font>
+                  <Font name="Berlin Sans FB" size="20.0" />
+               </font>
+            </Text>
+            <Text fill="WHITE" layoutX="399.0" layoutY="256.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Restart">
+               <font>
+                  <Font name="Berlin Sans FB" size="20.0" />
+               </font>
+            </Text>
+            <Text fill="WHITE" layoutX="562.0" layoutY="256.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Exit">
+               <font>
+                  <Font name="Berlin Sans FB" size="20.0" />
+               </font>
+            </Text>
+            <ImageView blendMode="LIGHTEN" fitHeight="39.0" fitWidth="142.0" layoutX="209.0" layoutY="319.0" opacity="0.45" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@images/Will.jpg" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="44.0" fitWidth="142.0" layoutX="350.0" layoutY="319.0" opacity="0.45" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@images/Hero.jpg" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="pause_hero" fitHeight="22.0" fitWidth="31.0" layoutX="342.0" layoutY="297.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@Helmet3.png" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
       <ImageView fitHeight="370.0" fitWidth="700.0" pickOnBounds="true">
          <image>
             <Image url="@images/bg.jpg" />
@@ -39,12 +119,11 @@
             <Image url="@images/pause_button-removebg-preview.png" />
          </image>
       </ImageView>
-      <Text fx:id="Score" fill="#615858" layoutX="361.0" layoutY="42.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" textAlignment="CENTER" wrappingWidth="68.50274658203125">
+      <Text fx:id="Score" fill="#615858" layoutX="361.0" layoutY="42.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" textAlignment="CENTER" visible="false" wrappingWidth="68.50274658203125">
          <font>
             <Font name="Haettenschweiler" size="46.0" />
          </font>
       </Text>
-      <Pane fx:id="pane" layoutX="-227.0" layoutY="246.0" prefHeight="200.0" prefWidth="200.0" />
       <Text fx:id="Score1" fill="#615858" layoutX="610.0" layoutY="20.0" strokeType="OUTSIDE" strokeWidth="0.0" text="coins: " textAlignment="CENTER" wrappingWidth="68.50274658203114">
          <font>
             <Font name="Berlin Sans FB Demi Bold" size="20.0" />
@@ -55,5 +134,67 @@
             <Font name="Berlin Sans FB Demi Bold" size="20.0" />
          </font>
       </Text>
+      <AnchorPane fx:id="death_screen" layoutY="377.0" opacity="0.79" prefHeight="377.0" prefWidth="700.0" style="-fx-background-color: black;">
+         <children>
+            <Text fill="#fafafa" layoutX="14.0" layoutY="59.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Dead">
+               <font>
+                  <Font name="Berlin Sans FB" size="50.0" />
+               </font>
+            </Text>
+            <Button fx:id="revive" layoutX="207.0" layoutY="168.0" mnemonicParsing="false" onAction="#reviveClicked" opacity="0.5" prefHeight="55.0" prefWidth="55.0">
+               <graphic>
+                  <ImageView fitHeight="55.0" fitWidth="67.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/resume.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button fx:id="exit1" layoutX="413.0" layoutY="168.0" mnemonicParsing="false" onAction="#exitClicked" opacity="0.5" prefHeight="55.0" prefWidth="55.0">
+               <graphic>
+                  <ImageView fitHeight="55.0" fitWidth="67.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/exit.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Text fill="WHITE" layoutX="215.0" layoutY="256.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Revive">
+               <font>
+                  <Font name="Berlin Sans FB" size="20.0" />
+               </font>
+            </Text>
+            <Text fill="WHITE" layoutX="433.0" layoutY="256.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Exit">
+               <font>
+                  <Font name="Berlin Sans FB" size="20.0" />
+               </font>
+            </Text>
+            <ImageView blendMode="LIGHTEN" fitHeight="39.0" fitWidth="142.0" layoutX="209.0" layoutY="319.0" opacity="0.45" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@images/Will.jpg" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="44.0" fitWidth="142.0" layoutX="350.0" layoutY="319.0" opacity="0.45" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@images/Hero.jpg" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="pause_hero1" fitHeight="22.0" fitWidth="31.0" layoutX="342.0" layoutY="297.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@Helmet3.png" />
+               </image>
+            </ImageView>
+            <Text fill="WHITE" layoutX="184.0" layoutY="278.0" strokeType="OUTSIDE" strokeWidth="0.0" text="(Cost 25 coins)">
+               <font>
+                  <Font name="Berlin Sans FB" size="20.0" />
+               </font>
+            </Text>
+            <Text fx:id="message" fill="#fafafa" layoutX="102.0" layoutY="158.0" strokeType="OUTSIDE" strokeWidth="0.0" text="REVIVE NOT POSSIBLE!!">
+               <font>
+                  <Font name="Berlin Sans FB" size="50.0" />
+               </font>
+            </Text>
+         </children>
+      </AnchorPane>
     </children>
 </AnchorPane>

@@ -4,7 +4,7 @@ import javafx.animation.TranslateTransition;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 
-public class Game_Objects {
+public class Game_Objects implements java.io.Serializable{
     AnchorPane Image;
     ImageView Img;
     protected void set_Image(AnchorPane Image ){

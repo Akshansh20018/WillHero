@@ -6,7 +6,7 @@ import javafx.scene.transform.Rotate;
 import javafx.util.Duration;
 import javafx.scene.Node;
 
-public class CommonAnimation {
+public class CommonAnimation implements java.io.Serializable{
 
     public static TranslateTransition runTranslateTransition(Node obj ,double x , double y , double duration ){
         TranslateTransition load = new TranslateTransition();
@@ -75,6 +75,16 @@ public class CommonAnimation {
         t.setDuration(Duration.millis(535.714));
         return t;
     }
+
+    public static TranslateTransition hero_revive(Node node) {
+        TranslateTransition t= new TranslateTransition();
+        t.setNode(node);
+        t.setToY(-150);
+        t.setAutoReverse(false);
+        t.setDuration(Duration.millis(1));
+        return t;
+    }
+
     public static RotateTransition rotate(Node node , double Angle , boolean reverse){
         RotateTransition rotateTransition = new RotateTransition();
 

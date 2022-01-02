@@ -5,7 +5,7 @@ import javafx.animation.RotateTransition;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
-public abstract class Weapons {
+public abstract class Weapons implements java.io.Serializable{
     int Power ;
     public  void onAction(){
      // CommonAnimation.rotate(img,180,true);

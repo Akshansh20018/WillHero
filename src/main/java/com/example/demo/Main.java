@@ -16,13 +16,13 @@ import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Random;
 
-public class Main extends Application {
+public class Main extends Application implements java.io.Serializable{
 
     public static Stage PrimaryStage;
 
     public static void LoadExitScreen() throws IOException {
 
-           Parent root = FXMLLoader.load(Main.class.getResource("Exit-Screen.fxml"));
+        Parent root = FXMLLoader.load(Main.class.getResource("Exit-Screen.fxml"));
         Scene scene = new Scene(root, 700, 370);
 
         PrimaryStage.setScene(scene);

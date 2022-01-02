@@ -15,7 +15,7 @@ import static com.example.demo.CommonAnimation.runTranslateTransition;
 
 import static java.util.Objects.requireNonNull;
 
-public class Obstacle {
+public class Obstacle implements java.io.Serializable{
     private ArrayList<Game_Objects> content=new ArrayList<Game_Objects>();
 //    Rectangle top;
     AnchorPane anchor_pane;

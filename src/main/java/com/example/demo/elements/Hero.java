@@ -133,11 +133,16 @@ public class Hero extends Character{
             runTranslateTransition(this.weap1, i, 0, 200).play();
             runTranslateTransition(this.weap2, i, 0, 200).play();
         }
-
          */
+   }
 
-
+    public void revive() {
+        hero_revive(this.get_Image()).play();
+        hero_revive(this.getImg()).play();
+        hero_revive(weap1).play();
+        hero_revive(weap2).play();
     }
+
     public int fight_orc(){
        if(hasweapon==-1){
            return  0;
