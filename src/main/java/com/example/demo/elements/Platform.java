@@ -151,14 +151,16 @@ public class Platform extends Game_Objects{
         return top;
     }
 
-    public void hasCollided(ImageView img , TranslateTransition fall) throws InterruptedException {
+    public void hasCollided(Hero hero, TranslateTransition fall) throws InterruptedException {
+        ImageView img = hero.getImg();
         Rectangle rect = top;
-
+        //System.out.println("ggagagaga");
         if((img.localToScreen(img.getBoundsInLocal()).intersects(rect.localToScreen(rect.getBoundsInLocal()))) && (img.localToScreen(img.getBoundsInLocal()).intersects(base.localToScreen(base.getBoundsInLocal()))==false)) {
             fall.pause();
             //runTranslateTransition(hero.get_Image(),0,-50,200).play();
             //ver_move(img,800, 150,false , 12000).play();
-            hero_jump(img).play();
+
+            hero.jump();
         }
     }
 

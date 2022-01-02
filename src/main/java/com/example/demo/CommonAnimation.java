@@ -1,10 +1,8 @@
 package com.example.demo;
 
 
-import javafx.animation.FadeTransition;
-import javafx.animation.KeyFrame;
-import javafx.animation.Timeline;
-import javafx.animation.TranslateTransition;
+import javafx.animation.*;
+import javafx.scene.transform.Rotate;
 import javafx.util.Duration;
 import javafx.scene.Node;
 
@@ -77,7 +75,17 @@ public class CommonAnimation {
         t.setDuration(Duration.millis(400));
         return t;
     }
+    public static RotateTransition rotate(Node node , double Angle , boolean reverse){
+        RotateTransition rotateTransition = new RotateTransition();
 
+        rotateTransition.setDuration(Duration.millis(1000));
+        rotateTransition.setNode(node);
+        rotateTransition.setAxis(Rotate.X_AXIS);
+        rotateTransition.setByAngle(Angle);
+        //rotateTransition.setCycleCount(RotateTransition.INDEFINITE);
+        rotateTransition.setAutoReverse(reverse);
+        return rotateTransition;
+    }
     public static Timeline delay(double time){
         return new Timeline(new KeyFrame(Duration.millis(time),e ->{}));
     }

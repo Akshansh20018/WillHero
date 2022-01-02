@@ -1,5 +1,8 @@
 package com.example.demo;
 
+import com.example.demo.Weapons.Axe;
+import com.example.demo.Weapons.Sword;
+import com.example.demo.Weapons.Weapons;
 import com.example.demo.elements.Game_Objects;
 import com.example.demo.elements.Obstacle;
 import com.example.demo.elements.Platform;
@@ -77,6 +80,7 @@ public class PlayGamePageController implements Initializable {
     private boolean helper= false;
 
     private TranslateTransition hero_falling;
+    private ArrayList<Game_Objects> obj_temp= new ArrayList<Game_Objects>();
 
 
 
@@ -86,6 +90,10 @@ public class PlayGamePageController implements Initializable {
         //vertical_jump(hero, -80, true, 800).play();
         hero= new Hero();
         hee =hero.get_Image();
+        Weapons axe = new Sword();
+        Weapons sword = new Axe();
+        hero.setWeapon1(sword);
+        hero.setWeapon2(axe);
         AnchorPane.setTopAnchor(hee, 180.0);
         AnchorPane.setLeftAnchor(hee, 65.0);
         Anchor.getChildren().add(hee);
@@ -131,6 +139,8 @@ public class PlayGamePageController implements Initializable {
 
         pane =obstacle.getAnchor_pane();
         Obstacles.add(obstacle);
+        for(Game_Objects obj : obstacle.getGameObjects())
+        obj_temp.add(obj);
 
 
         //AnchorPane.setTopAnchor(pane, add_from_y);
@@ -190,26 +200,21 @@ public class PlayGamePageController implements Initializable {
     AnimationTimer timer= new AnimationTimer() {
         @Override
         public void handle(long l) {
-          hero_falling= hero_drop(hee, 0, 22.8571428, 150);
+            hero_falling = hero_drop(hero.get_Image(), 0, 22.8571428, 150);
 //          GameEnd_check();
-          hero_falling.play();
+            hero_falling.play();
             //int temp= Obstacles.size();
 
-            for(Obstacle obs : Obstacles) {
+
+            for (Game_Objects game_obj : obj_temp) {
                 try {
-                    obs.getPlat().hasCollided(hero.getImg() , hero_falling);
+
+                    game_obj.hasCollided(hero, hero_falling);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
-                ArrayList<Game_Objects> obj_temp= obs.getGameObjects();
-                for(Game_Objects game_obj : obj_temp) {
-                    try {
-                        game_obj.hasCollided(hero, hero_falling);
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    }
-                }
             }
+
         }
     };
 

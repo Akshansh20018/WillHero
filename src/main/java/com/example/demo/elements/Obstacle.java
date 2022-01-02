@@ -69,6 +69,7 @@ public class Obstacle {
         AnchorPane.setLeftAnchor(obj, 65.0);
         anchor_pane.getChildren().add(obj);
         this.length=140;
+        content.add(plat);
     }
 
     private void create_obstacle_1(){
@@ -89,7 +90,7 @@ public class Obstacle {
         anchor_pane.getChildren().add(obj);
         this.length=420;
         boolean chest_found = false;
-
+        content.add(plat);
         for(int i=0 ; i<4 ; i++) {
             x=x+100;
             choice= rand.nextInt(3);
@@ -149,6 +150,7 @@ public class Obstacle {
         AnchorPane.setLeftAnchor(obj, 65.0);
         anchor_pane.getChildren().add(obj);
         this.length=170;
+        content.add(plat);
 
     }
 

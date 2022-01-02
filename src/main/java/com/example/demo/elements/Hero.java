@@ -5,7 +5,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 
-import static com.example.demo.CommonAnimation.vertical_jump;
+import static com.example.demo.CommonAnimation.*;
 import static java.util.Objects.requireNonNull;
 
 public class Hero extends Character{
@@ -40,17 +40,33 @@ public class Hero extends Character{
     }
 
     public void setWeapon1(Weapons weapon) {
+        ImageView obj = weapon.getImg();
+        AnchorPane.setTopAnchor(obj, 0.0);
+        AnchorPane.setLeftAnchor(obj, -10.0);
+        this.get_Image().getChildren().add(obj);
+        // rotate(weapon.getImg(),-30,false).play();
         this.weapon1 = weapon;
     }
 
     public Weapons getWeapon1() {
-        return weapon1;
+        return this.weapon1;
     }
 
     public void setWeapon2(Weapons weapon) {
+
+        ImageView obj = weapon.getImg();
+        AnchorPane.setTopAnchor(obj, 10.0);
+        AnchorPane.setLeftAnchor(obj, 0.0);
+        this.get_Image().getChildren().add(obj);
         this.weapon2 = weapon;
     }
-
+    public void jump(){
+       hero_jump(this.getImg()).play();
+       if(weapon1!=null)
+            hero_jump(weapon1.getImg()).play();
+       if(weapon2!=null)
+            hero_jump(weapon2.getImg()).play();
+    }
     public Weapons getWeapon2() {
         return weapon2;
     }
