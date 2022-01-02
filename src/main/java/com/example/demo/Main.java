@@ -82,11 +82,15 @@ public class Main extends Application {
         PrimaryStage.setScene(scene);
     }
 
-    public void add_platform(){
 
+
+     public void GameOver() throws IOException {
+
+         Parent root = FXMLLoader.load(Main.class.getResource("Exit-Screen.fxml"));
+         Scene scene = new Scene(root, 700, 370);
+
+         PrimaryStage.setScene(scene);
      }
-
-     public void GameOver() {}
 
     @Override
     public void start(Stage stage) throws Exception {

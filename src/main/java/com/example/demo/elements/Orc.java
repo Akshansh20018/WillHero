@@ -111,6 +111,7 @@ public class Orc extends Character {
             fall.pause();
             hero.jump();
         }
+        //hasCollided(this,fall);
         if(hitpoints<0)
             Die();
         return 1;

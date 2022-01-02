@@ -10,6 +10,7 @@ import javafx.scene.shape.Rectangle;
 import java.io.IOException;
 import java.util.Random;
 
+import static com.example.demo.CommonAnimation.runTranslateTransition;
 import static java.util.Objects.requireNonNull;
 
 public class Platform extends Game_Objects{
@@ -178,6 +179,21 @@ public class Platform extends Game_Objects{
             //runTranslateTransition(hero.get_Image(),0,-50,200).play();
             //ver_move(img,800, 150,false , 12000).play();
             hero.jump();
+            return 1;
+        }
+        return 0;
+
+    }
+    public int hasCollided(Orc orc, TranslateTransition fall) throws InterruptedException {
+        ImageView img = orc.getImg();
+        Rectangle rect = top;
+        //System.out.println("ggagagaga");
+        if((img.localToScreen(img.getBoundsInLocal()).intersects(rect.localToScreen(rect.getBoundsInLocal()))) && (img.localToScreen(img.getBoundsInLocal()).intersects(base.localToScreen(base.getBoundsInLocal()))==false)) {
+            fall.pause();
+
+            //
+            //ver_move(img,800, 150,false , 12000).play();
+            runTranslateTransition(orc.get_Image(),0,-50,200).play();
             return 1;
         }
         return 0;

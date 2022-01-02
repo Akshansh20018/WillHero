@@ -16,6 +16,7 @@ import javafx.geometry.Bounds;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
@@ -28,6 +29,7 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.Random;
 import java.util.ResourceBundle;
+import static com.example.demo.Main.*;
 
 import static com.example.demo.CommonAnimation.*;
 
@@ -182,10 +184,10 @@ public class PlayGamePageController implements Initializable {
 
     }
 
-    public void pauseClicked(ActionEvent event) throws IOException {
+    public void pauseClicked() throws IOException {
         //pause func back button fade
-        runTranslateTransition(pause_screen, 0, 377, 2000).play();
-//        System.out.println("hello mic test");
+        //runTranslateTransition(pause_screen, 0, 377, 2000).play();
+        System.out.println("hello mic test");
     }
 
     public void resumeClicked(ActionEvent event) throws IOException {
@@ -195,6 +197,7 @@ public class PlayGamePageController implements Initializable {
     }
 
     public void Play(){
+
         helper= true;
         //runTranslateTransition(hee,0,-80,1).play();
         score++;
@@ -231,18 +234,32 @@ public class PlayGamePageController implements Initializable {
             for (Game_Objects game_obj : obj_temp) {
                 try {
                     int answer = game_obj.hasCollided(hero, hero_falling);
-                    if(answer == 120);
-                        //gameOver();
+                    if(answer == 120)
+                        gameOver();
                 } catch (InterruptedException e) {
+                    e.printStackTrace();
+                } catch (IOException e) {
                     e.printStackTrace();
                 }
             }
 
             if(GameEnd_check()) {
-                //Game Over Screen Display
+                timer.stop();
+                try {
+                    gameOver();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
             }
         }
     };
+
+    private void gameOver() throws IOException {
+        //timer.stop();
+
+        System.out.println("Game is over");
+        Main.LoadExitScreen();
+    }
 
     public boolean GameEnd_check() {
 //        System.out.println("Hero Coordinates: "+ hero.get_Image().getTranslateY());
