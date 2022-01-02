@@ -43,11 +43,12 @@ public class Obstacle {
     }
 
     private void get_obstacle_from_choice(int obstacle_type ){
-        if(obstacle_type>=3 || obstacle_type<0){
+        if(obstacle_type>3 || obstacle_type<0){
             System.out.println("invalid choice for platform");
             return;
         }
-
+        if(obstacle_type == 3)
+            create_obstacle_3();
         if(obstacle_type==0){
             create_obstacle_0();
         }
@@ -151,6 +152,28 @@ public class Obstacle {
         anchor_pane.getChildren().add(obj);
         this.length=170;
         content.add(plat);
+
+    }
+    private void create_obstacle_3(){
+
+        anchor_pane=new AnchorPane();
+        AnchorPane obj=new AnchorPane();
+        plat = new Platform(1);
+        obj = plat.get_Image();
+        AnchorPane.setTopAnchor(obj, 100.0);
+        AnchorPane.setLeftAnchor(obj, 65.0);
+        anchor_pane.getChildren().add(obj);
+        this.length=420;
+        content.add(plat);
+        Boss boss = new Boss();
+        obj =boss.get_Image();
+        content.add(boss);
+        AnchorPane.setTopAnchor(obj, 135.0);
+        AnchorPane.setLeftAnchor(obj, 120.0);
+
+        anchor_pane.getChildren().add(obj);
+
+
 
     }
 

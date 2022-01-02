@@ -120,6 +120,8 @@ public class PlayGamePageController implements Initializable {
         add_obstacle(0);
         add_obstacle(1);
         add_obstacle(-1);
+        add_obstacle(3);
+
        timer.start();
         try {
             PlaySound.PlayBackGround();
@@ -132,8 +134,11 @@ public class PlayGamePageController implements Initializable {
         if(add_from_x>50*200){
             if(boss_spawned)
                 return;
-            else
-                choice=4;
+            else{
+                choice=3;
+                boss_spawned= true;
+            }
+
         }
         Obstacle obstacle = null;
         if(choice==0){
@@ -141,7 +146,9 @@ public class PlayGamePageController implements Initializable {
         else if(choice==1){
             obstacle = new Obstacle(1, hero);
         }
-
+        else if(choice ==3){
+            obstacle = new Obstacle(3,hero);
+        }
         else {
             try {
                 obstacle= new Obstacle(hero);
@@ -151,7 +158,7 @@ public class PlayGamePageController implements Initializable {
             }
         }
 
-            //plat = new Platform();
+        //plat = new Platform();
 
         pane =obstacle.getAnchor_pane();
         Obstacles.add(obstacle);

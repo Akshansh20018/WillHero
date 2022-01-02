@@ -105,31 +105,50 @@ public class Hero extends Character{
 
 
     }
+    public void movetheheroplease(double i){
+        runTranslateTransition(this.getImg(), i, 0, 200).play();
+        runTranslateTransition(this.get_Image(), i, 0, 200).play();
+        runTranslateTransition(this.weap1, i, 0, 200).play();
+        runTranslateTransition(this.weap2, i, 0, 200).play();
+    }
 
     public void jump(){
 
       // hero_jump(this.getImg()).play();
-
-
-
         hero_jump(this.get_Image()).play();
         hero_jump(this.getImg()).play();
         hero_jump(weap1).play();
         hero_jump(weap2).play();
+        /*if(i.intValue()==1) {
+
+            hero_jump(this.get_Image()).play();
+            hero_jump(this.getImg()).play();
+            hero_jump(weap1).play();
+            hero_jump(weap2).play();
+        }
+        else{
+            runTranslateTransition(this.getImg(), i, 0, 200).play();
+            runTranslateTransition(this.get_Image(), i, 0, 200).play();
+            runTranslateTransition(this.weap1, i, 0, 200).play();
+            runTranslateTransition(this.weap2, i, 0, 200).play();
+        }
+
+         */
+
 
     }
     public int fight_orc(){
        if(hasweapon==-1){
-           return  50;
+           return  0;
        }
        else if(hasweapon == 1){
-           return 50+axe.getPower();
+           return axe.getPower();
        }
 
        else if(hasweapon == 0)
-           return 50+sword.getPower();
+           return sword.getPower();
        else
-           return Integer.max(50+axe.getPower(),50+sword.getPower());
+           return Integer.max(50+axe.getPower(),50+sword.getPower())-50;
     }
 
 }

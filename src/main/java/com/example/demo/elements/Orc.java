@@ -22,9 +22,10 @@ public class Orc extends Character {
     private ImageView img;
     private int coins;
     private int hitpoints;
+    private double Moveleft=100;
 
     public Orc(){
-        hitpoints= 100;
+        hitpoints= 500;
         Random rand= new Random();
         int orc_type= rand.nextInt(4);
         Image orco=new Image(requireNonNull(getClass().getResourceAsStream("GreenOrc_1.png")));;
@@ -76,7 +77,21 @@ public class Orc extends Character {
         set_Jump_speed(rand.nextInt(100)+500);
         jump();
     }
+    public void setHitpoints(int hitpoints){
+       this.hitpoints=hitpoints;
+    }
+    public void setCoins(int coins){
+        this.coins=coins;
+    }
 
+    public void setBoundary(Rectangle bottom , Rectangle top , Rectangle left) {
+        this.bottom = bottom;
+        this.top = top;
+        this.left = left;
+    }
+    public void set_movelef(int move){
+        Moveleft = move;
+    }
     public void hasCollided(Hero hero, TranslateTransition fall) {
 
 
@@ -85,7 +100,10 @@ public class Orc extends Character {
         }
 
         if(hero.getImg().localToScreen(hero.getImg().getBoundsInLocal()).intersects(left.localToScreen(left.getBoundsInLocal()))) {
-            runTranslateTransition(this.get_Image(), +400, 0, 200).play();
+            runTranslateTransition(this.get_Image(), Moveleft, 0, 200).play();
+            //runTranslateTransition(hero.getImg(), -Moveleft, 0, 200).play();
+           // hero.jump(-Moveleft);
+
             hitpoints -= hero.fight_orc();
         }
 
