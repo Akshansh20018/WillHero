@@ -100,9 +100,9 @@ public class Orc extends Character {
         }
 
         if(hero.getImg().localToScreen(hero.getImg().getBoundsInLocal()).intersects(left.localToScreen(left.getBoundsInLocal()))) {
+
             runTranslateTransition(this.get_Image(), Moveleft, 0, 200).play();
-            //runTranslateTransition(hero.getImg(), -Moveleft, 0, 200).play();
-           // hero.jump(-Moveleft);
+           // runTranslateTransition(this.get_Image(), Moveleft, 0, 200).play();
 
             hitpoints -= hero.fight_orc();
         }

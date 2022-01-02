@@ -120,7 +120,6 @@ public class PlayGamePageController implements Initializable {
         add_obstacle(0);
         add_obstacle(1);
         add_obstacle(-1);
-        add_obstacle(3);
 
        timer.start();
         try {
