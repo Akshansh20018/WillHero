@@ -19,6 +19,7 @@ public class Hero extends Character{
      private AnchorPane dadada;
      private int hasweapon=-1;
      private int bonus_flag=0;
+     private Helmet helmet = null;
      /*has weapon = 0 -> sword
          has weapon = 1 -> axe
          has weapob =2 -> both
@@ -66,6 +67,7 @@ public class Hero extends Character{
     }
 
     public void setWeapon(Weapons weapon){
+
         if(bonus_flag==1)
             return;
         if(weapon instanceof  Axe)

@@ -117,7 +117,7 @@ public class PlayGamePageController implements Initializable{
 
         Random rand= new Random();
         bonus_loc= 45+ rand.nextInt(5);
-        bonus_loc= 2;
+        //bonus_loc=2;
 
         hero= new Hero();
         hee =hero.get_Image();
@@ -137,10 +137,10 @@ public class PlayGamePageController implements Initializable{
         end_check.setFill(Color.BLACK);
         Anchor.getChildren().add(end_check);
 
-        score=0;
+
         coins= 0;
 
-//        vertical_jump(hee,-80,true,700).play();
+
         hor_move(cloud_1, -900, 1000, false, 12000).play();
         hor_move(cloud_2, -1000, 5000, false, 12000).play();
         hor_move(cloud_3, -990, 1000, false, 12000).play();
@@ -149,7 +149,7 @@ public class PlayGamePageController implements Initializable{
         //hero_drop(hee, 0, 22.8571428, 150).play();
         add_obstacle(0);
         add_obstacle(1);
-     // add_obstacle(3);
+        //add_obstacle(3);
         message.setVisible(false);
 
        timer.start();
@@ -243,7 +243,7 @@ public class PlayGamePageController implements Initializable{
 //        Anchor.getChildren().add(temp);
         runTranslateTransition(pause_screen, 0, 377, 2000).play();
         pause_screen.toFront();
-        System.out.println("hello mic test");
+        //System.out.println("hello mic test");
     }
 
     public void resumeClicked(ActionEvent event) throws IOException {
@@ -273,7 +273,7 @@ public class PlayGamePageController implements Initializable{
     }
 
     public void reviveClicked(ActionEvent event) throws IOException {
-        if(hero.getCoins()>=25 && flag==0) {
+        if(hero.getCoins()>=10 && flag==0) {
             hero.setCoins(hero.getCoins());
             coins= hero.getCoins();
             Coins.setText(Integer.toString(coins));
@@ -304,6 +304,7 @@ public class PlayGamePageController implements Initializable{
         Score.setText(Integer.toString(score));
 
         if(score==bonus_loc) {
+
             bonus_flag= 1;
             int a=30;
             bonus_block= new Rectangle();
@@ -361,12 +362,16 @@ public class PlayGamePageController implements Initializable{
 
             checkBonusCollision();
 
-            for (Game_Objects game_obj : obj_temp) {
 
+            for(int i=0 ; i< obj_temp.size() ; i++){
+                Game_Objects game_obj = obj_temp.get(i);
                 try {
                     int answer = game_obj.hasCollided(hero, hero_falling);
                     if(answer == 120)
                         gameOver();
+                    if(answer == 111)
+                        obj_temp.remove(game_obj);
+
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 } catch (IOException e) {
@@ -399,7 +404,7 @@ public class PlayGamePageController implements Initializable{
     private void gameOver() throws IOException {
         //timer.stop();
 
-        System.out.println("Game is over");
+      //  System.out.println("Game is over");
 //        Main.LoadExitScreen();
         death_screen.toFront();
         runTranslateTransition(death_screen, 0, -377, 2000).play();

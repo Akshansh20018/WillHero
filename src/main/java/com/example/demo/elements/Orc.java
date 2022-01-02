@@ -26,7 +26,7 @@ public class Orc extends Character {
 
     public Orc(){
 
-        hitpoints= 100;
+        hitpoints= 10;
         Random rand= new Random();
         int orc_type= rand.nextInt(4);
         Image orco=new Image(requireNonNull(getClass().getResourceAsStream("GreenOrc_1.png")));;
@@ -74,7 +74,7 @@ public class Orc extends Character {
         left.setY(5);
         left.setHeight(35);
         //left.setFill(Color.BROWN);
-        left.setWidth(4);
+        left.setWidth(20);
         dadada.getChildren().add(left);
         left.setVisible(false);
 
@@ -117,11 +117,15 @@ public class Orc extends Character {
 
         if(hero.getImg().localToScreen(hero.getImg().getBoundsInLocal()).intersects(top.localToScreen(top.getBoundsInLocal()))) {
             fall.pause();
-            //hero.jump();
+            hero.jump();
         }
 
-        if(hitpoints<0)
+        if(hitpoints<0){
+            hero.setCoins(hero.getCoins()+2);
             return Die();
+
+        }
+
         return 1;
     }
     private int Die(){
