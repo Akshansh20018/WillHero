@@ -24,7 +24,8 @@ public class Weapon_chest extends  Chest{
                 hero.setWeapon1(weapon);
             }
             else if(hero.getWeapon2()==null) {
-                hero.setWeapon2(weapon);
+                hero.setWeapon2(hero.getWeapon1());
+                hero.setWeapon1(weapon);
             }
         }
     }

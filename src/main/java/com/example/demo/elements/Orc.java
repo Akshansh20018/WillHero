@@ -21,8 +21,10 @@ public class Orc extends Character {
     private Rectangle top;
     private ImageView img;
     private int coins;
+    private int hitpoints;
 
     public Orc(){
+        hitpoints= 100;
         Random rand= new Random();
         int orc_type= rand.nextInt(4);
         Image orco=new Image(requireNonNull(getClass().getResourceAsStream("GreenOrc_1.png")));;
@@ -82,6 +84,12 @@ public class Orc extends Character {
 
         if(hero.getImg().localToScreen(hero.getImg().getBoundsInLocal()).intersects(left.localToScreen(left.getBoundsInLocal()))) {
             runTranslateTransition(this.get_Image(), +400, 0, 200).play();
+            if(hero.getWeapon1()==null) {
+                hitpoints-=50;
+            }
+            else {
+                hitpoints-= (50+ hero.getWeapon1().getPower());
+            }
         }
 
 //        if(hero.getImg().localToScreen(hero.getImg().getBoundsInLocal()).intersects(top.localToScreen(top.getBoundsInLocal()))) {

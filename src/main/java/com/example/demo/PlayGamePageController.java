@@ -90,10 +90,10 @@ public class PlayGamePageController implements Initializable {
         //vertical_jump(hero, -80, true, 800).play();
         hero= new Hero();
         hee =hero.get_Image();
-        Weapons axe = new Sword();
-        Weapons sword = new Axe();
-        hero.setWeapon1(sword);
-        hero.setWeapon2(axe);
+//        Weapons axe = new Sword();
+//        Weapons sword = new Axe();
+//        hero.setWeapon1(sword);
+//        hero.setWeapon2(axe);
         AnchorPane.setTopAnchor(hee, 180.0);
         AnchorPane.setLeftAnchor(hee, 65.0);
         Anchor.getChildren().add(hee);
