@@ -11,8 +11,6 @@ public class Chest extends Game_Objects{
 
     Image Weapon;
     ImageView img;
-    Image Weapon2;
-    ImageView img2;
     AnchorPane dadada;
 
     public Chest(){
@@ -24,12 +22,6 @@ public class Chest extends Game_Objects{
         img.setFitWidth(65);
         img.setPreserveRatio(true);
         dadada.getChildren().add(img);
-
-        Weapon2 = new Image(requireNonNull(getClass().getResourceAsStream("HERO.png")));
-        img2= new ImageView();
-        img2.setImage(Weapon);
-        img2.setFitWidth(65);
-        img2.setPreserveRatio(true);
     }
 
     public int haveCollided(ImageView hero, TranslateTransition fall) {
@@ -46,6 +38,14 @@ public class Chest extends Game_Objects{
             return 1;
         }
         return 0;
+    }
+
+    public AnchorPane getAnchorPane() {
+        return dadada;
+    }
+
+    public void setAnchorPane(AnchorPane dadada) {
+        this.dadada= dadada;
     }
 
 }

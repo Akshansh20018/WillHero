@@ -105,7 +105,7 @@ public class Obstacle {
                 Chest chest = null;
 
                 choice=rand.nextInt(2);
-//                choice= 1;
+//                choice= 0;
                 if(choice==1){
                     chest = new Weapon_chest();
                 }

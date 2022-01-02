@@ -20,6 +20,7 @@ public class Orc extends Character {
     private Rectangle left;
     private Rectangle top;
     private ImageView img;
+    private int coins;
 
     public Orc(){
         Random rand= new Random();
@@ -34,6 +35,7 @@ public class Orc extends Character {
         if(orc_type==3)
             orco = new Image(requireNonNull(getClass().getResourceAsStream("RedOrc_2.png")));
 
+        coins= rand.nextInt(10);
 
         img= new ImageView();
         img.setImage(orco);
@@ -86,5 +88,9 @@ public class Orc extends Character {
 //            fall.pause();
 //            hero_jump(img).play();
 //        }
+    }
+
+    public int getCoins() {
+        return coins;
     }
 }
