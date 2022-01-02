@@ -147,6 +147,25 @@ public class Platform extends Game_Objects{
         anchor_pane.getChildren().add(base);
     }
 
+    private void falling_platform() {
+        anchor_pane= new AnchorPane();
+
+        Rectangle floor= new Rectangle();
+        floor.setWidth(10);
+        floor.setHeight(4);
+        floor.setFill(Color.BLACK);
+        anchor_pane.getChildren().add(floor);
+
+//        top = new Rectangle();
+//        top.setX(13);
+//        top.setY(102);
+//        top.setWidth(170);
+//        top.setFill(Color.DARKBLUE);
+//        top.setHeight(2);
+////        top.setVisible(false);
+//        anchor_pane.getChildren().add(top);
+    }
+
     public Rectangle getTop() {
         return top;
     }

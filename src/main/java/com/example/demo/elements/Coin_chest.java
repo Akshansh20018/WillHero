@@ -19,6 +19,7 @@ public class Coin_chest extends Chest{
     private Image poppingCoin_img;
     private ImageView poppingCoin_View;
 
+
     public Coin_chest(){
 
         super();

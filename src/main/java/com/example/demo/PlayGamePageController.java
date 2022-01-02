@@ -81,7 +81,7 @@ public class PlayGamePageController implements Initializable {
 
     private TranslateTransition hero_falling;
     private ArrayList<Game_Objects> obj_temp= new ArrayList<Game_Objects>();
-
+    private Boolean boss_spawned=false;
 
 
 
@@ -90,10 +90,10 @@ public class PlayGamePageController implements Initializable {
         //vertical_jump(hero, -80, true, 800).play();
         hero= new Hero();
         hee =hero.get_Image();
-        Weapons axe = new Sword();
-        Weapons sword = new Axe();
-        hero.setWeapon1(sword);
-        hero.setWeapon2(axe);
+//        Weapons axe = new Sword();
+//        Weapons sword = new Axe();
+//        hero.setWeapon1(sword);
+//        hero.setWeapon2(axe);
         AnchorPane.setTopAnchor(hee, 180.0);
         AnchorPane.setLeftAnchor(hee, 65.0);
         Anchor.getChildren().add(hee);
@@ -120,12 +120,19 @@ public class PlayGamePageController implements Initializable {
     }
 
     public void add_obstacle(int choice)  {
+        if(add_from_x>50*200){
+            if(boss_spawned)
+                return;
+            else
+                choice=4;
+        }
         Obstacle obstacle = null;
         if(choice==0){
         obstacle = new Obstacle(0, hero);}
         else if(choice==1){
             obstacle = new Obstacle(1, hero);
         }
+
         else {
             try {
                 obstacle= new Obstacle(hero);

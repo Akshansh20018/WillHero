@@ -1,5 +1,7 @@
 package com.example.demo.elements;
 
+import com.example.demo.Weapons.Axe;
+import com.example.demo.Weapons.Sword;
 import com.example.demo.Weapons.Weapons;
 import javafx.animation.TranslateTransition;
 import javafx.scene.image.Image;
@@ -14,18 +16,19 @@ public class Weapon_chest extends  Chest{
 
     public Weapon_chest(){
         super();
-        /*Random rand= new Random();
-        int weapon_type= rand.nextInt(2);*/
+        Random rand= new Random();
+        int weapon_type= rand.nextInt(2);
+        if(weapon_type==0)
+            weapon=new Axe();
+        if(weapon_type==1)
+            weapon=new Sword();
+
     }
     public void hasCollided(Hero hero, TranslateTransition fall) {
         int temp= super.haveCollided(hero.getImg(), fall);
         if(temp==1) {
-            if(hero.getWeapon1()==null) {
-                hero.setWeapon1(weapon);
-            }
-            else if(hero.getWeapon2()==null) {
-                hero.setWeapon2(weapon);
-            }
+            hero.setWeapon(weapon);
+            System.out.println(weapon.getClass());
         }
     }
 }
