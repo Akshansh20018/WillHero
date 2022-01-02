@@ -16,6 +16,7 @@ public class Hero extends Character{
      private Weapons sword= null;
      ImageView weap1;
      ImageView weap2;
+     private AnchorPane dadada;
      private int hasweapon=-1;
      /*has weapon = 0 -> sword
          has weapon = 1 -> axe
@@ -29,7 +30,7 @@ public class Hero extends Character{
        img.setImage(hero);
        img.setFitWidth(40);
        img.setPreserveRatio(true);
-       AnchorPane dadada= new AnchorPane();
+       dadada= new AnchorPane();
        dadada.getChildren().add(img);
        setImg(img);
 
@@ -50,11 +51,6 @@ public class Hero extends Character{
        weap2.setVisible(false);
        dadada.getChildren().add(weap2);
 
-
-
-
-
-
 //       vertical_jump(img,-80,true,700).play();
     }
     public ImageView getImg() {
@@ -68,8 +64,6 @@ public class Hero extends Character{
     public int getCoins() {
         return coins;
     }
-
-
 
     public void setWeapon(Weapons weapon){
 
@@ -94,6 +88,7 @@ public class Hero extends Character{
 
 
     }
+
     public void setWeapon(Sword weapon){
 
         if(hasweapon ==0 || hasweapon == 2)
@@ -107,6 +102,7 @@ public class Hero extends Character{
 
 
     }
+
     public void movetheheroplease(double i){
         //runTranslateTransition(this.getImg(), i, 0, 200).play();
         runTranslateTransition(this.get_Image(), i, 0, 200).play();
@@ -158,4 +154,21 @@ public class Hero extends Character{
            return Integer.max(50+axe.getPower(),50+sword.getPower())-10;
     }
 
+    public void setImg(ImageView img) {
+       this.img= img;
+    }
+
+    public void bonus_on() {
+       System.out.println("Reached here");
+//        dadada.getChildren().remove(0);
+//        Image Open = new Image(requireNonNull(getClass().getResourceAsStream("GreenOrc_1.png")));
+//        img = new ImageView();
+//        img.setImage(Open);
+//        img.setFitWidth(75);
+//        img.setPreserveRatio(true);
+        hasweapon= -1;
+    }
+
+    public void bonus_off() {
+    }
 }

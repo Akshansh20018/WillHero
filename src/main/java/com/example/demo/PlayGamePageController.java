@@ -33,6 +33,7 @@ import java.util.ResourceBundle;
 import static com.example.demo.Main.*;
 
 import static com.example.demo.CommonAnimation.*;
+import static java.util.Objects.requireNonNull;
 
 public class PlayGamePageController implements Initializable{
 
@@ -103,11 +104,19 @@ public class PlayGamePageController implements Initializable{
     private Boolean boss_spawned=false;
     private Rectangle end_check;
     private int flag= 0;
-
+    private int bonus_flag=0;
+    private int bonus_loc;
+    private Rectangle bonus_block;
+    private Rectangle pseudo_bonus;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         //vertical_jump(hero, -80, true, 800).play();
+
+        Random rand= new Random();
+        bonus_loc= 45+ rand.nextInt(5);
+        bonus_loc= 2;
+
         hero= new Hero();
         hee =hero.get_Image();
 //        Weapons axe = new Sword();
@@ -274,6 +283,7 @@ public class PlayGamePageController implements Initializable{
             }
         }
     }
+
     public void Play(){
 
         helper= true;
@@ -282,9 +292,38 @@ public class PlayGamePageController implements Initializable{
 
         Score.setText(Integer.toString(score));
 
+        if(score==bonus_loc) {
+            bonus_flag= 1;
+
+            bonus_block= new Rectangle();
+            bonus_block.setHeight(50);
+            bonus_block.setWidth(50);
+            bonus_block.setFill(Color.PURPLE);
+            bonus_block.setX(800);
+            bonus_block.setY(60);
+            Anchor.getChildren().add(bonus_block);
+
+            pseudo_bonus= new Rectangle();
+            pseudo_bonus.setHeight(50);
+            pseudo_bonus.setWidth(50);
+            pseudo_bonus.setFill(Color.BLACK);
+            pseudo_bonus.setX(1400);
+            pseudo_bonus.setY(60);
+            pseudo_bonus.setVisible(false);
+            Anchor.getChildren().add(pseudo_bonus);
+        }
+
+        if(score== bonus_loc+20) {
+            hero.bonus_off();
+        }
+
+        if(bonus_flag==1) {
+            runTranslateTransition(bonus_block, -200, 0, 100).play();
+            runTranslateTransition(pseudo_bonus, -200, 0, 100).play();
+        }
+
         int i;
         for( i=0 ; i< Obstacles.size() ; i++){
-
 
             Obstacle obstacle = Obstacles.get(i);
 
@@ -309,6 +348,8 @@ public class PlayGamePageController implements Initializable{
             //int temp= Obstacles.size();
 
 
+            checkBonusCollision();
+
             for (Game_Objects game_obj : obj_temp) {
 
                 try {
@@ -332,6 +373,17 @@ public class PlayGamePageController implements Initializable{
             }
         }
     };
+
+    private void checkBonusCollision() {
+//        System.out.println(bonus_flag);
+        if(bonus_flag==0) {
+            return;
+        }
+        ImageView img= hero.getImg();
+        if(img.localToScreen(img.getBoundsInLocal()).intersects(pseudo_bonus.localToScreen(pseudo_bonus.getBoundsInParent()))){
+            hero.bonus_on();
+        }
+    }
 
     private void gameOver() throws IOException {
         //timer.stop();
