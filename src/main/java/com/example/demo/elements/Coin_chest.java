@@ -1,17 +1,12 @@
 package com.example.demo.elements;
 
-import javafx.animation.FadeTransition;
-import javafx.animation.SequentialTransition;
 import javafx.animation.TranslateTransition;
-import javafx.scene.Node;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 
 import java.util.Random;
 
-import static com.example.demo.CommonAnimation.fade;
-import static com.example.demo.CommonAnimation.runTranslateTransition;
 import static java.util.Objects.requireNonNull;
 
 public class Coin_chest extends Chest{
@@ -53,10 +48,11 @@ public class Coin_chest extends Chest{
         return this.coins;
     }
 
-    public void hasCollided(Hero hero, TranslateTransition fall) {
+    public int hasCollided(Hero hero, TranslateTransition fall) {
         int temp= super.haveCollided(hero.getImg(), fall);
         if(temp==1) {
             hero.setCoins(hero.getCoins()+coins);
         }
+        return 1;
     }
 }

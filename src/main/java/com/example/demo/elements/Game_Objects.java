@@ -6,12 +6,19 @@ import javafx.scene.layout.AnchorPane;
 
 public class Game_Objects {
     AnchorPane Image;
-
+    ImageView Img;
     protected void set_Image(AnchorPane Image ){
         this.Image = Image;
     }
     public AnchorPane get_Image(){
         return this.Image;
     }
-    public void hasCollided(Hero hero, TranslateTransition hero_falling) throws InterruptedException {}
+    protected void setImg(ImageView Image ){
+        this.Img = Image;
+    }
+    public ImageView getImg(){
+        return this.Img;
+    }
+
+    public int hasCollided(Hero hero, TranslateTransition hero_falling) throws InterruptedException {return 1;}
 }

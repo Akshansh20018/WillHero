@@ -4,8 +4,6 @@ import com.example.demo.Weapons.Axe;
 import com.example.demo.Weapons.Sword;
 import com.example.demo.Weapons.Weapons;
 import javafx.animation.TranslateTransition;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 
 import java.util.Random;
 
@@ -24,11 +22,12 @@ public class Weapon_chest extends  Chest{
             weapon=new Sword();
 
     }
-    public void hasCollided(Hero hero, TranslateTransition fall) {
+    public int hasCollided(Hero hero, TranslateTransition fall) {
         int temp= super.haveCollided(hero.getImg(), fall);
         if(temp==1) {
             hero.setWeapon( weapon);
             System.out.println(weapon.getClass());
         }
+        return 1;
     }
 }

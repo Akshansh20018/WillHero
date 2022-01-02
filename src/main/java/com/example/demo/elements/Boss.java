@@ -53,6 +53,7 @@ public class Boss extends Orc{
         setHitpoints(400);
         setCoins(30);
         set_movelef(70);
+        setImg(img);
     }
 
 

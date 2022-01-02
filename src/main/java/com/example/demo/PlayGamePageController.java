@@ -223,14 +223,16 @@ public class PlayGamePageController implements Initializable {
             coins= hero.getCoins();
             Coins.setText(Integer.toString(coins));
 
-            hero_falling = hero_drop(hero.get_Image(), 0, 22.8571428, 150);
+            hero_falling = hero_drop(hero.get_Image(), 0, 42, 150);
             hero_falling.play();
             //int temp= Obstacles.size();
 
 
             for (Game_Objects game_obj : obj_temp) {
                 try {
-                    game_obj.hasCollided(hero, hero_falling);
+                    int answer = game_obj.hasCollided(hero, hero_falling);
+                    if(answer == 120);
+                        //gameOver();
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }

@@ -31,6 +31,7 @@ public class Hero extends Character{
        img.setPreserveRatio(true);
        AnchorPane dadada= new AnchorPane();
        dadada.getChildren().add(img);
+       setImg(img);
 
 
        set_Image(dadada);

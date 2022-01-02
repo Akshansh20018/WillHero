@@ -72,7 +72,7 @@ public class CommonAnimation {
         t.setNode(node);
         t.setByY(-150);
         t.setAutoReverse(false);
-        t.setDuration(Duration.millis(400));
+        t.setDuration(Duration.millis(535.714));
         return t;
     }
     public static RotateTransition rotate(Node node , double Angle , boolean reverse){

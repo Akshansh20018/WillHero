@@ -9,7 +9,6 @@ import javafx.scene.shape.Rectangle;
 
 import java.util.Random;
 
-import static com.example.demo.CommonAnimation.hero_jump;
 import static com.example.demo.CommonAnimation.runTranslateTransition;
 import static java.util.Objects.requireNonNull;
 
@@ -48,6 +47,7 @@ public class Orc extends Character {
         AnchorPane dadada= new AnchorPane();
         dadada.getChildren().add(img);
         set_Image(dadada);
+        setImg(img);
 
         bottom= new Rectangle();
         bottom.setX(0);
@@ -74,7 +74,7 @@ public class Orc extends Character {
         dadada.getChildren().add(left);
 
         //speed range between 500 600
-        set_Jump_speed(rand.nextInt(100)+500);
+        set_Jump_speed(rand.nextInt(100)+600);
         jump();
     }
     public void setHitpoints(int hitpoints){
@@ -92,7 +92,7 @@ public class Orc extends Character {
     public void set_movelef(int move){
         Moveleft = move;
     }
-    public void hasCollided(Hero hero, TranslateTransition fall) {
+    public int hasCollided(Hero hero, TranslateTransition fall) {
 
 
         if(hero.getImg().localToScreen(hero.getImg().getBoundsInLocal()).intersects(bottom.localToScreen(bottom.getBoundsInLocal()))) {
@@ -113,6 +113,7 @@ public class Orc extends Character {
         }
         if(hitpoints<0)
             Die();
+        return 1;
     }
     private void Die(){
 

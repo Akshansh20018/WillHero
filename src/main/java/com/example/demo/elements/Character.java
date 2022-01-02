@@ -15,7 +15,7 @@ public class Character extends Game_Objects {
 
         public void jump(){
 
-        vertical_jump(Image,-25,true,jump_speed).play();}
+        vertical_jump(Image,-105,true,jump_speed).play();}
 
 
 }

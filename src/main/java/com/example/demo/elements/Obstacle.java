@@ -92,8 +92,8 @@ public class Obstacle {
         this.length=420;
         boolean chest_found = false;
         content.add(plat);
-        for(int i=0 ; i<4 ; i++) {
-            x=x+100;
+        for(int i=0 ; i<2 ; i++) {
+            x=x+200;
             choice= rand.nextInt(3);
             if(choice==0&&chest_found){
                 choice=1+ rand.nextInt(2);
