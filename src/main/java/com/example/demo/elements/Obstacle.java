@@ -98,7 +98,7 @@ public class Obstacle {
 
             }
 //Adding here
-            choice= 0;
+//            choice= 0;
             if (choice == 0) {
 
                 chest_found=true;

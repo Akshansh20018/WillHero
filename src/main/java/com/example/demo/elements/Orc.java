@@ -79,12 +79,12 @@ public class Orc extends Character {
         }
 
         if(hero.getImg().localToScreen(hero.getImg().getBoundsInLocal()).intersects(left.localToScreen(left.getBoundsInLocal()))) {
-            runTranslateTransition(this.img, +400, 0, 200).play();
+            runTranslateTransition(this.get_Image(), +400, 0, 200).play();
         }
 
-        if(hero.getImg().localToScreen(hero.getImg().getBoundsInLocal()).intersects(top.localToScreen(top.getBoundsInLocal()))) {
-            fall.pause();
-            hero_jump(img).play();
-        }
+//        if(hero.getImg().localToScreen(hero.getImg().getBoundsInLocal()).intersects(top.localToScreen(top.getBoundsInLocal()))) {
+//            fall.pause();
+//            hero_jump(img).play();
+//        }
     }
 }

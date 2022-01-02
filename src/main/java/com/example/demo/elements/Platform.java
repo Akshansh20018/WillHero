@@ -20,6 +20,7 @@ public class Platform extends Game_Objects{
     private AnchorPane anchor_pane;
     private ImageView img;
     private Rectangle top;
+    private Rectangle base;
 
     public Platform() throws IOException {
 
@@ -70,8 +71,16 @@ public class Platform extends Game_Objects{
         top.setWidth(140);
         top.setFill(Color.DARKBLUE);
         top.setHeight(2);
-        top.setVisible(false);
+//        top.setVisible(false);
         anchor_pane.getChildren().add(top);
+
+        base = new Rectangle();
+        base.setX(17);
+        base.setY(150);
+        base.setWidth(140);
+        base.setFill(Color.PINK);
+        base.setHeight(2);
+        anchor_pane.getChildren().add(base);
     }
 
     private void create_platform_1(){
@@ -93,8 +102,17 @@ public class Platform extends Game_Objects{
         top.setWidth(420);
         top.setFill(Color.DARKBLUE);
         top.setHeight(2);
-        top.setVisible(false);
+//        top.setVisible(false);
         anchor_pane.getChildren().add(top);
+
+        base = new Rectangle();
+        base.setX(43);
+        base.setY(155);
+        base.setWidth(420);
+        base.setFill(Color.PINK);
+        base.setHeight(2);
+//        top.setVisible(false);
+        anchor_pane.getChildren().add(base);
     }
 
     private void create_platform_2(){
@@ -116,8 +134,17 @@ public class Platform extends Game_Objects{
         top.setWidth(170);
         top.setFill(Color.DARKBLUE);
         top.setHeight(2);
-        top.setVisible(false);
+//        top.setVisible(false);
         anchor_pane.getChildren().add(top);
+
+        base = new Rectangle();
+        base.setX(13);
+        base.setY(122);
+        base.setWidth(170);
+        base.setFill(Color.PINK);
+        base.setHeight(2);
+//        top.setVisible(false);
+        anchor_pane.getChildren().add(base);
     }
 
     public Rectangle getTop() {
@@ -127,7 +154,7 @@ public class Platform extends Game_Objects{
     public void hasCollided(ImageView img , TranslateTransition fall) throws InterruptedException {
         Rectangle rect = top;
 
-        if(img.localToScreen(img.getBoundsInLocal()).intersects(rect.localToScreen(rect.getBoundsInLocal()))) {
+        if((img.localToScreen(img.getBoundsInLocal()).intersects(rect.localToScreen(rect.getBoundsInLocal()))) && (img.localToScreen(img.getBoundsInLocal()).intersects(base.localToScreen(base.getBoundsInLocal()))==false)) {
             fall.pause();
             //runTranslateTransition(hero.get_Image(),0,-50,200).play();
             //ver_move(img,800, 150,false , 12000).play();

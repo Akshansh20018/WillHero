@@ -65,6 +65,9 @@ public class PlayGamePageController implements Initializable {
     @FXML
     private Text Coins;
 
+    @FXML
+    private Rectangle end_check;
+
     private ArrayList<Obstacle> Obstacles = new ArrayList<Obstacle>();
     private double add_from_x = -40;
     private double add_from_y = -30;
@@ -188,6 +191,7 @@ public class PlayGamePageController implements Initializable {
         @Override
         public void handle(long l) {
           hero_falling= hero_drop(hee, 0, 22.8571428, 150);
+//          GameEnd_check();
           hero_falling.play();
             //int temp= Obstacles.size();
 
@@ -209,5 +213,9 @@ public class PlayGamePageController implements Initializable {
         }
     };
 
-
+    public void GameEnd_check() {
+        if(hee.localToScreen(hee.getBoundsInLocal()).intersects(end_check.localToScene(end_check.getBoundsInParent()))) {
+            System.out.println("GAME OVER");
+        }
     }
+}

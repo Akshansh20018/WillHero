@@ -34,8 +34,14 @@ public class Chest extends Game_Objects{
 
     public int haveCollided(ImageView hero, TranslateTransition fall) {
         if(hero.localToScreen(hero.getBoundsInLocal()).intersects(img.localToScreen(img.getBoundsInLocal()))) {
-            System.out.println("Chest");
+//            System.out.println("Chest");
             dadada.getChildren().remove(0);
+            Weapon = new Image(requireNonNull(getClass().getResourceAsStream("ChestOpen.png")));
+            img= new ImageView();
+            img.setImage(Weapon);
+            img.setFitWidth(75);
+            img.setPreserveRatio(true);
+            dadada.getChildren().add(img);
 //            dadada.getChildren().add(img2);
             return 1;
         }
