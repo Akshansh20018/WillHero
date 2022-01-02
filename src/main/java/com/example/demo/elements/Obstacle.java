@@ -46,7 +46,7 @@ public class Obstacle implements java.io.Serializable{
         if(obstacle_type==101){
             create_obstaclewithboss();
         }
-        if(obstacle_type>3 || obstacle_type<0){
+        else if(obstacle_type>3 || obstacle_type<0){
             System.out.println("invalid choice for platform");
             return;
         }
