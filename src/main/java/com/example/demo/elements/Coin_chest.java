@@ -46,7 +46,7 @@ public class Coin_chest extends Chest{
 //        poppingCoin_View.setVisible(false);
 
         Random rand= new Random();
-        coins= rand.nextInt(5);
+        coins= 2+rand.nextInt(3);
     }
 
     public int getCoins() {

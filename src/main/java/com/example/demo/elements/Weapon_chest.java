@@ -32,4 +32,3 @@ public class Weapon_chest extends  Chest{
         }
     }
 }
-

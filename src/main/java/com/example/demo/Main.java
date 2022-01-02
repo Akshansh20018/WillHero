@@ -86,6 +86,8 @@ public class Main extends Application {
 
      }
 
+     public void GameOver() {}
+
     @Override
     public void start(Stage stage) throws Exception {
         PrimaryStage = stage;

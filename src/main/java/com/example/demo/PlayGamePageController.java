@@ -18,6 +18,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
+import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
 
@@ -68,8 +69,8 @@ public class PlayGamePageController implements Initializable {
     @FXML
     private Text Coins;
 
-    @FXML
-    private Rectangle end_check;
+//    @FXML
+//    private Rectangle end_check;
 
     private ArrayList<Obstacle> Obstacles = new ArrayList<Obstacle>();
     private double add_from_x = -40;
@@ -82,7 +83,7 @@ public class PlayGamePageController implements Initializable {
     private TranslateTransition hero_falling;
     private ArrayList<Game_Objects> obj_temp= new ArrayList<Game_Objects>();
     private Boolean boss_spawned=false;
-
+    private Rectangle end_check;
 
 
     @Override
@@ -97,6 +98,14 @@ public class PlayGamePageController implements Initializable {
         AnchorPane.setTopAnchor(hee, 180.0);
         AnchorPane.setLeftAnchor(hee, 65.0);
         Anchor.getChildren().add(hee);
+
+        end_check= new Rectangle();
+        end_check.setX(0);
+        end_check.setY(550);
+        end_check.setWidth(700);
+        end_check.setHeight(5);
+        end_check.setFill(Color.BLACK);
+        Anchor.getChildren().add(end_check);
 
         score=0;
         coins= 0;
@@ -183,10 +192,8 @@ public class PlayGamePageController implements Initializable {
         helper= true;
         //runTranslateTransition(hee,0,-80,1).play();
         score++;
-        coins= hero.getCoins();
 
         Score.setText(Integer.toString(score));
-        Coins.setText(Integer.toString(coins));
 
         int i;
         for( i=0 ; i< Obstacles.size() ; i++){
@@ -207,27 +214,38 @@ public class PlayGamePageController implements Initializable {
     AnimationTimer timer= new AnimationTimer() {
         @Override
         public void handle(long l) {
+            coins= hero.getCoins();
+            Coins.setText(Integer.toString(coins));
+
             hero_falling = hero_drop(hero.get_Image(), 0, 22.8571428, 150);
-//          GameEnd_check();
             hero_falling.play();
             //int temp= Obstacles.size();
 
 
             for (Game_Objects game_obj : obj_temp) {
                 try {
-
                     game_obj.hasCollided(hero, hero_falling);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
             }
 
+            if(GameEnd_check()) {
+                //Game Over Screen Display
+            }
         }
     };
 
-    public void GameEnd_check() {
-        if(hee.localToScreen(hee.getBoundsInLocal()).intersects(end_check.localToScene(end_check.getBoundsInParent()))) {
-            System.out.println("GAME OVER");
+    public boolean GameEnd_check() {
+//        System.out.println("Hero Coordinates: "+ hero.get_Image().getTranslateY());
+        ImageView img= hero.getImg();
+//        System.out.println("Hero Coordinates: "+ hero.getImg().localToScreen(hero.getImg().getBoundsInLocal()));
+//        System.out.println(img.getX());
+//        System.out.println("Hero Coordinates: "+ img.localToParent(img.getX(), img.getY()));
+        if(img.localToScreen(img.getBoundsInLocal()).intersects(end_check.getBoundsInParent())){
+            System.out.println("Game Over");
+            return true;
         }
+        return false;
     }
 }

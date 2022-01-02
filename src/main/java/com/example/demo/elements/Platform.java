@@ -67,19 +67,20 @@ public class Platform extends Game_Objects{
 
         top = new Rectangle();
         top.setX(17);
-        top.setY(120);
+        top.setY(132);
         top.setWidth(140);
         top.setFill(Color.DARKBLUE);
         top.setHeight(2);
-//        top.setVisible(false);
+        top.setVisible(false);
         anchor_pane.getChildren().add(top);
 
         base = new Rectangle();
         base.setX(17);
-        base.setY(150);
+        base.setY(142);
         base.setWidth(140);
         base.setFill(Color.PINK);
         base.setHeight(2);
+        base.setVisible(false);
         anchor_pane.getChildren().add(base);
     }
 
@@ -98,20 +99,20 @@ public class Platform extends Game_Objects{
 
         top = new Rectangle();
         top.setX(43);
-        top.setY(135);
+        top.setY(145);
         top.setWidth(420);
         top.setFill(Color.DARKBLUE);
         top.setHeight(2);
-//        top.setVisible(false);
+        top.setVisible(false);
         anchor_pane.getChildren().add(top);
 
         base = new Rectangle();
         base.setX(43);
-        base.setY(155);
+        base.setY(158);
         base.setWidth(420);
         base.setFill(Color.PINK);
         base.setHeight(2);
-//        top.setVisible(false);
+        base.setVisible(false);
         anchor_pane.getChildren().add(base);
     }
 
@@ -130,11 +131,11 @@ public class Platform extends Game_Objects{
 
         top = new Rectangle();
         top.setX(13);
-        top.setY(102);
+        top.setY(112);
         top.setWidth(170);
         top.setFill(Color.DARKBLUE);
         top.setHeight(2);
-//        top.setVisible(false);
+        top.setVisible(false);
         anchor_pane.getChildren().add(top);
 
         base = new Rectangle();
@@ -143,7 +144,7 @@ public class Platform extends Game_Objects{
         base.setWidth(170);
         base.setFill(Color.PINK);
         base.setHeight(2);
-//        top.setVisible(false);
+        base.setVisible(false);
         anchor_pane.getChildren().add(base);
     }
 
@@ -178,7 +179,6 @@ public class Platform extends Game_Objects{
             fall.pause();
             //runTranslateTransition(hero.get_Image(),0,-50,200).play();
             //ver_move(img,800, 150,false , 12000).play();
-
             hero.jump();
         }
     }

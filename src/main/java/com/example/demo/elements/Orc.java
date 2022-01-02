@@ -66,8 +66,8 @@ public class Orc extends Character {
 
         left= new Rectangle();
         left.setX(0);
-        left.setY(0);
-        left.setHeight(45);
+        left.setY(5);
+        left.setHeight(35);
         left.setFill(Color.BROWN);
         left.setWidth(2);
         dadada.getChildren().add(left);
@@ -92,10 +92,10 @@ public class Orc extends Character {
             }
         }
 
-//        if(hero.getImg().localToScreen(hero.getImg().getBoundsInLocal()).intersects(top.localToScreen(top.getBoundsInLocal()))) {
-//            fall.pause();
-//            hero_jump(img).play();
-//        }
+        if(hero.getImg().localToScreen(hero.getImg().getBoundsInLocal()).intersects(top.localToScreen(top.getBoundsInLocal()))) {
+            fall.pause();
+            hero.jump();
+        }
     }
 
     public int getCoins() {
