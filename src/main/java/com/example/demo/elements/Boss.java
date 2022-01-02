@@ -50,9 +50,9 @@ public class Boss extends Orc{
         //speed range between 500 600
         set_Jump_speed(500);
         jump();
-        setHitpoints(400);
+        setHitpoints(1000);
         setCoins(30);
-        set_movelef(70);
+        set_movelef(100);
         setImg(img);
     }
 

@@ -19,12 +19,14 @@ public class Orc extends Character {
     private Rectangle left;
     private Rectangle top;
     private ImageView img;
+    private Rectangle Plat;
     private int coins;
     private int hitpoints;
-    private double Moveleft=100;
+    private double Moveleft=200;
 
     public Orc(){
-        hitpoints= 500;
+
+        hitpoints= 100;
         Random rand= new Random();
         int orc_type= rand.nextInt(4);
         Image orco=new Image(requireNonNull(getClass().getResourceAsStream("GreenOrc_1.png")));;
@@ -53,30 +55,35 @@ public class Orc extends Character {
         bottom.setX(0);
         bottom.setY(45);
         bottom.setWidth(50);
-        bottom.setFill(Color.HOTPINK);
+        //bottom.setFill(Color.HOTPINK);
         bottom.setHeight(2);
         dadada.getChildren().add(bottom);
+        bottom.setVisible(false);
 
         top= new Rectangle();
         top.setX(0);
         top.setY(0);
         top.setWidth(50);
-        top.setFill(Color.HOTPINK);
+        //top.setFill(Color.HOTPINK);
         top.setHeight(2);
         dadada.getChildren().add(top);
+        top.setVisible(false);
 
         left= new Rectangle();
         left.setX(0);
-        left.setY(0);
-        left.setHeight(45);
-        left.setFill(Color.BROWN);
-        left.setWidth(2);
+        left.setY(5);
+        left.setHeight(35);
+        //left.setFill(Color.BROWN);
+        left.setWidth(4);
         dadada.getChildren().add(left);
+        left.setVisible(false);
 
         //speed range between 500 600
         set_Jump_speed(rand.nextInt(100)+600);
         jump();
     }
+
+
     public void setHitpoints(int hitpoints){
        this.hitpoints=hitpoints;
     }
@@ -97,6 +104,7 @@ public class Orc extends Character {
 
         if(hero.getImg().localToScreen(hero.getImg().getBoundsInLocal()).intersects(bottom.localToScreen(bottom.getBoundsInLocal()))) {
             //Game Over
+            return 0;
         }
 
         if(hero.getImg().localToScreen(hero.getImg().getBoundsInLocal()).intersects(left.localToScreen(left.getBoundsInLocal()))) {
@@ -109,17 +117,18 @@ public class Orc extends Character {
 
         if(hero.getImg().localToScreen(hero.getImg().getBoundsInLocal()).intersects(top.localToScreen(top.getBoundsInLocal()))) {
             fall.pause();
-            hero.jump();
+            //hero.jump();
         }
-        //hasCollided(this,fall);
+
         if(hitpoints<0)
-            Die();
+            return Die();
         return 1;
     }
-    private void Die(){
+    private int Die(){
 
-        runTranslateTransition(this.get_Image(), +900, 0, 200).play();
-        runTranslateTransition(this.get_Image(), 0, -300, 200).play();
+       //getImg().setVisible(false);
+        runTranslateTransition(get_Image(),500 , 300, 200).play();
+        return 111;
 
     }
     public int getCoins() {

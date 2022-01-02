@@ -29,20 +29,25 @@ public class Chest extends Game_Objects{
         if(open){
           return 0;
         }
-        if(hero.localToScreen(hero.getBoundsInLocal()).intersects(img.localToScreen(img.getBoundsInLocal()))) {
-            fall.pause();
-          //  System.out.println("Chest");
-            dadada.getChildren().remove(0);
-           Open = new Image(requireNonNull(getClass().getResourceAsStream("ChestOpen.png")));
-            img= new ImageView();
-            img.setImage(Open);
-            img.setFitWidth(75);
-            img.setPreserveRatio(true);
-            dadada.getChildren().add(img);
-//            dadada.getChildren().add(img2);
-            open=true;
-            return 1;
+        synchronized (this) {
+            if (hero.localToScreen(hero.getBoundsInLocal()).intersects(img.localToScreen(img.getBoundsInLocal()))) {
+                fall.pause();
+                //  System.out.println("Chest");
+
+               /* dadada.getChildren().remove(0);
+                Open = new Image(requireNonNull(getClass().getResourceAsStream("ChestOpen.png")));
+                img = new ImageView();
+                img.setImage(Open);
+                img.setFitWidth(75);
+                img.setPreserveRatio(true);
+                dadada.getChildren().add(img);
+//            dadada.getChildren().add(img2);*/
+                //System.out.println("HI");
+                open = true;
+                return 1;
+            }
         }
+
         return 0;
     }
 

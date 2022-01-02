@@ -16,7 +16,7 @@ import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Random;
 
-public class Main extends Application implements java.io.Serializable{
+public class Main extends Application {
 
     public static Stage PrimaryStage;
 
@@ -108,8 +108,8 @@ public class Main extends Application implements java.io.Serializable{
     catch(Exception e) {
             System.out.println("image not loaded..");
         }
-        StartGame();
-        //HomePage();
+        //StartGame();
+        HomePage();
         PrimaryStage.show();
     }
 

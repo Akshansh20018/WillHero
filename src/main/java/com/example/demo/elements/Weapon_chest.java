@@ -26,7 +26,7 @@ public class Weapon_chest extends  Chest{
         int temp= super.haveCollided(hero.getImg(), fall);
         if(temp==1) {
             hero.setWeapon( weapon);
-            System.out.println(weapon.getClass());
+
         }
         return 1;
     }

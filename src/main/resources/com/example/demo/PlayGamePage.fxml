@@ -119,7 +119,7 @@
             <Image url="@images/pause_button-removebg-preview.png" />
          </image>
       </ImageView>
-      <Text fx:id="Score" fill="#615858" layoutX="361.0" layoutY="42.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" textAlignment="CENTER" visible="false" wrappingWidth="68.50274658203125">
+      <Text fx:id="Score" fill="#615858" layoutX="361.0" layoutY="42.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" textAlignment="CENTER" wrappingWidth="68.50274658203125">
          <font>
             <Font name="Haettenschweiler" size="46.0" />
          </font>

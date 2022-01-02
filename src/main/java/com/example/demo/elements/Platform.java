@@ -20,6 +20,7 @@ public class Platform extends Game_Objects{
     private Rectangle top;
     private Rectangle base;
 
+
     public Platform() throws IOException {
 
     //System.out.println("thisis plat");
@@ -33,7 +34,7 @@ public class Platform extends Game_Objects{
     }
 
     private void get_platform_from_choice(int platform_type ){
-        if(platform_type>=4 || platform_type<0){
+        if(platform_type>=3 || platform_type<0){
             System.out.println("invalid choice for platform");
             return;
         }
@@ -48,8 +49,26 @@ public class Platform extends Game_Objects{
         if(platform_type==2){
             create_platform_2();
         }
+
     }
 
+ /*   private void create_platform_3() {
+        anchor_pane=new AnchorPane();
+        Double x=0.0;
+        Rectangle rect;
+        for(int i=0 ; i< 10 ; i++) {
+            rect = new Rectangle();
+            rect.setX(10);
+            rect.setY(20 + x);
+            rect.setWidth(0);
+            rect.setFill(Color.DARKBLUE);
+            rect.setHeight(2);
+            rect.setVisible(true);
+            anchor_pane.getChildren().add(rect);
+            x=x+10.02;
+        }
+    }
+*/
     private void create_platform_0(){
         anchor_pane=new AnchorPane();
 
@@ -183,21 +202,10 @@ public class Platform extends Game_Objects{
         }
         return 0;
 
-    }
-    public int hasCollided(Orc orc, TranslateTransition fall) throws InterruptedException {
-        ImageView img = orc.getImg();
-        Rectangle rect = top;
-        //System.out.println("ggagagaga");
-        if((img.localToScreen(img.getBoundsInLocal()).intersects(rect.localToScreen(rect.getBoundsInLocal()))) && (img.localToScreen(img.getBoundsInLocal()).intersects(base.localToScreen(base.getBoundsInLocal()))==false)) {
-            fall.pause();
 
-            //
-            //ver_move(img,800, 150,false , 12000).play();
-            runTranslateTransition(orc.get_Image(),0,-50,200).play();
-            return 1;
-        }
-        return 0;
+
 
     }
+
 
 }

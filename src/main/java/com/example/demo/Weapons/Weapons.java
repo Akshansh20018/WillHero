@@ -15,7 +15,7 @@ public abstract class Weapons implements java.io.Serializable{
         Power+=20;
     }
     public int getPower(){
-        System.out.println("SHould be translated");
+
         onAction();
         return this.Power;
     }

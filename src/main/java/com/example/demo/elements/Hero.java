@@ -145,7 +145,7 @@ public class Hero extends Character{
 
     public int fight_orc(){
        if(hasweapon==-1){
-           return  0;
+           return  40;
        }
        else if(hasweapon == 1){
            return axe.getPower();
@@ -154,7 +154,7 @@ public class Hero extends Character{
        else if(hasweapon == 0)
            return sword.getPower();
        else
-           return Integer.max(50+axe.getPower(),50+sword.getPower())-50;
+           return Integer.max(50+axe.getPower(),50+sword.getPower())-10;
     }
 
 }
