@@ -138,7 +138,7 @@ public class PlayGamePageController implements Initializable{
         //hero_drop(hee, 0, 22.8571428, 150).play();
         add_obstacle(0);
         add_obstacle(1);
-        add_obstacle(-1);
+     // add_obstacle(3);
         message.setVisible(false);
 
        timer.start();
@@ -166,7 +166,29 @@ public class PlayGamePageController implements Initializable{
             obstacle = new Obstacle(1, hero);
         }
         else if(choice ==3){
-            obstacle = new Obstacle(3,hero);
+
+
+            add_from_x+=20;
+            for(int i=0 ; i< 30 ; i++){
+
+                obstacle = new Obstacle(3,hero);
+                if(i==10){
+                    obstacle=new Obstacle(101,hero);
+                }
+                pane =obstacle.getAnchor_pane();
+                Obstacles.add(obstacle);
+                for(Game_Objects obj : obstacle.getGameObjects())
+                    obj_temp.add(obj);
+                pane.setLayoutX(add_from_x);
+                pane.setLayoutY(add_from_y +50);
+
+                add_from_x+=30;
+
+                //AnchorPane.setBottomAnchor(pane, 200.0);
+
+                Anchor.getChildren().add(pane);
+                hee.toFront();}
+            return;
         }
         else {
             try {
@@ -199,6 +221,7 @@ public class PlayGamePageController implements Initializable{
 
         Anchor.getChildren().add(pane);
         hee.toFront();
+
 
     }
 
@@ -287,6 +310,7 @@ public class PlayGamePageController implements Initializable{
 
 
             for (Game_Objects game_obj : obj_temp) {
+
                 try {
                     int answer = game_obj.hasCollided(hero, hero_falling);
                     if(answer == 120)

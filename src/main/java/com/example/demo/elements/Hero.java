@@ -88,8 +88,9 @@ public class Hero extends Character{
        {
            weap1.setVisible(true);
            axe = new Axe();
+           hasweapon+=2;
+
        }
-       hasweapon+=2;
 
 
     }

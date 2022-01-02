@@ -18,7 +18,7 @@ import static java.util.Objects.requireNonNull;
 public class Obstacle implements java.io.Serializable{
     private ArrayList<Game_Objects> content=new ArrayList<Game_Objects>();
 //    Rectangle top;
-    AnchorPane anchor_pane;
+    private AnchorPane anchor_pane;
     public double length;
     public double coordinate;
     private Hero hero;
@@ -43,6 +43,9 @@ public class Obstacle implements java.io.Serializable{
     }
 
     private void get_obstacle_from_choice(int obstacle_type ){
+        if(obstacle_type==101){
+            create_obstaclewithboss();
+        }
         if(obstacle_type>3 || obstacle_type<0){
             System.out.println("invalid choice for platform");
             return;
@@ -58,11 +61,11 @@ public class Obstacle implements java.io.Serializable{
         if(obstacle_type==2){
             create_obstacle_2();
         }
+
     }
 
     private void create_obstacle_0(){
         anchor_pane=new AnchorPane();
-
         AnchorPane obj=new AnchorPane();
         plat = new Platform(0);
         obj = plat.get_Image();
@@ -158,23 +161,46 @@ public class Obstacle implements java.io.Serializable{
 
         anchor_pane=new AnchorPane();
         AnchorPane obj=new AnchorPane();
-        plat = new Platform(1);
+        plat = new Platform(3);
         obj = plat.get_Image();
         AnchorPane.setTopAnchor(obj, 100.0);
         AnchorPane.setLeftAnchor(obj, 65.0);
         anchor_pane.getChildren().add(obj);
-        this.length=420;
+        this.length=20;
         content.add(plat);
+
+
+
+
+    }
+
+    private void create_obstaclewithboss(){
+       anchor_pane=new AnchorPane();
+        AnchorPane obj=new AnchorPane();
+        plat = new Platform(3);
+        obj = plat.get_Image();
+        AnchorPane.setTopAnchor(obj, 100.0);
+        AnchorPane.setLeftAnchor(obj, 65.0);
+        anchor_pane.getChildren().add(obj);
+        this.length=20;
+        content.add(plat);
+
         Boss boss = new Boss();
-        obj =boss.get_Image();
+        obj = boss.get_Image();
         content.add(boss);
         AnchorPane.setTopAnchor(obj, 135.0);
         AnchorPane.setLeftAnchor(obj, 120.0);
 
         anchor_pane.getChildren().add(obj);
-
-
-
+        /*anchor_pane=new AnchorPane();
+        AnchorPane obj=new AnchorPane();
+        plat = new Platform(3);
+        obj = plat.get_Image();
+        AnchorPane.setTopAnchor(obj, 100.0);
+        AnchorPane.setLeftAnchor(obj, 65.0);
+        anchor_pane.getChildren().add(obj);
+        this.length=20;
+        content.add(plat);*/
     }
 
 //    public Rectangle get_Top() {

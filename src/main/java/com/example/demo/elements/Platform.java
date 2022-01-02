@@ -19,6 +19,7 @@ public class Platform extends Game_Objects{
     private ImageView img;
     private Rectangle top;
     private Rectangle base;
+    private Boolean falling = false;
 
 
     public Platform() throws IOException {
@@ -34,7 +35,7 @@ public class Platform extends Game_Objects{
     }
 
     private void get_platform_from_choice(int platform_type ){
-        if(platform_type>=3 || platform_type<0){
+        if(platform_type>3 || platform_type<0){
             System.out.println("invalid choice for platform");
             return;
         }
@@ -49,26 +50,35 @@ public class Platform extends Game_Objects{
         if(platform_type==2){
             create_platform_2();
         }
-
-    }
-
- /*   private void create_platform_3() {
-        anchor_pane=new AnchorPane();
-        Double x=0.0;
-        Rectangle rect;
-        for(int i=0 ; i< 10 ; i++) {
-            rect = new Rectangle();
-            rect.setX(10);
-            rect.setY(20 + x);
-            rect.setWidth(0);
-            rect.setFill(Color.DARKBLUE);
-            rect.setHeight(2);
-            rect.setVisible(true);
-            anchor_pane.getChildren().add(rect);
-            x=x+10.02;
+        if(platform_type==3){
+            create_platform_3();
         }
+
     }
-*/
+
+   private void create_platform_3() {
+        anchor_pane=new AnchorPane();
+        falling = true;
+       top = new Rectangle();
+       top.setX(17);
+       top.setY(132);
+       top.setWidth(20);
+       top.setFill(Color.DARKBLUE);
+       top.setHeight(2);
+       top.setVisible(true);
+       anchor_pane.getChildren().add(top);
+
+       base = new Rectangle();
+       base.setX(17);
+       base.setY(142);
+       base.setWidth(20);
+       base.setFill(Color.PINK);
+       base.setHeight(2);
+       base.setVisible(true);
+       anchor_pane.getChildren().add(base);
+       set_Image(anchor_pane);
+    }
+
     private void create_platform_0(){
         anchor_pane=new AnchorPane();
 
@@ -198,6 +208,9 @@ public class Platform extends Game_Objects{
             //runTranslateTransition(hero.get_Image(),0,-50,200).play();
             //ver_move(img,800, 150,false , 12000).play();
             hero.jump();
+            if(falling){
+                runTranslateTransition(anchor_pane,0,600,10000).play();
+            }
             return 1;
         }
         return 0;

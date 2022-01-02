@@ -28,6 +28,7 @@ public class Boss extends Orc{
         bottom.setFill(Color.HOTPINK);
         bottom.setHeight(3);
        // bottom.setVisible(true);
+        bottom.setVisible(false);
         dadada.getChildren().add(bottom);
 
         Rectangle top= new Rectangle();
@@ -36,6 +37,7 @@ public class Boss extends Orc{
         top.setWidth(123);
         top.setFill(Color.HOTPINK);
         top.setHeight(2);
+        top.setVisible(false);
         dadada.getChildren().add(top);
 
         Rectangle left= new Rectangle();
@@ -43,8 +45,9 @@ public class Boss extends Orc{
         left.setY(0);
         left.setHeight(110);
         left.setFill(Color.HOTPINK);
-        left.setWidth(20);
+        left.setWidth(50);
         left.setVisible(true);
+        left.setVisible(false);
         dadada.getChildren().add(left);
         setBoundary(bottom,top,left);
         //speed range between 500 600
