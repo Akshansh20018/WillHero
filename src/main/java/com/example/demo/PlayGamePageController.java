@@ -24,7 +24,9 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
 
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.ObjectOutputStream;
 import java.net.URISyntaxException;
 import java.net.URL;
 import java.util.ArrayList;
@@ -260,6 +262,15 @@ public class PlayGamePageController implements Initializable{
             e.printStackTrace();
         }
     }
+    public void SaveGame(ActionEvent event) throws IOException {
+        timer.stop();
+        ObjectOutputStream out = null;
+        /*try{
+
+            out = new ObjectOutputStream(new FileOutputStream("out.txt"));
+            out.writeObject(s1);
+        }*/
+    }
 
     public void reviveClicked(ActionEvent event) throws IOException {
         if(hero.getCoins()>=25 && flag==0) {
@@ -294,9 +305,9 @@ public class PlayGamePageController implements Initializable{
 
         if(score==bonus_loc) {
             bonus_flag= 1;
-
+            int a=30;
             bonus_block= new Rectangle();
-            bonus_block.setHeight(50);
+            bonus_block.setHeight(50+a);
             bonus_block.setWidth(50);
             bonus_block.setFill(Color.PURPLE);
             bonus_block.setX(800);
@@ -304,7 +315,7 @@ public class PlayGamePageController implements Initializable{
             Anchor.getChildren().add(bonus_block);
 
             pseudo_bonus= new Rectangle();
-            pseudo_bonus.setHeight(50);
+            pseudo_bonus.setHeight(50+a);
             pseudo_bonus.setWidth(50);
             pseudo_bonus.setFill(Color.BLACK);
             pseudo_bonus.setX(1400);

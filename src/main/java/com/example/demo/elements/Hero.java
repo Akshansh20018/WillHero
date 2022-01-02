@@ -9,15 +9,16 @@ import static com.example.demo.CommonAnimation.*;
 import static java.util.Objects.requireNonNull;
 
 public class Hero extends Character{
-    //private helmet;
-     private ImageView img;
+
+
      private int coins;
      private Weapons axe= null;
      private Weapons sword= null;
-     ImageView weap1;
-     ImageView weap2;
+     private ImageView weap1;
+     private ImageView weap2;
      private AnchorPane dadada;
      private int hasweapon=-1;
+     private int bonus_flag=0;
      /*has weapon = 0 -> sword
          has weapon = 1 -> axe
          has weapob =2 -> both
@@ -26,6 +27,7 @@ public class Hero extends Character{
 
    public Hero(){
        Image hero=new Image(requireNonNull(getClass().getResourceAsStream("HERO.png")));
+       ImageView img;
        img= new ImageView();
        img.setImage(hero);
        img.setFitWidth(40);
@@ -53,9 +55,7 @@ public class Hero extends Character{
 
 //       vertical_jump(img,-80,true,700).play();
     }
-    public ImageView getImg() {
-       return img;
-    }
+
 
     public void setCoins(int coins) {
         this.coins = coins;
@@ -66,7 +66,8 @@ public class Hero extends Character{
     }
 
     public void setWeapon(Weapons weapon){
-
+        if(bonus_flag==1)
+            return;
         if(weapon instanceof  Axe)
             setWeapon((Axe)weapon);
         if(weapon instanceof  Sword)
@@ -90,6 +91,7 @@ public class Hero extends Character{
     }
 
     public void setWeapon(Sword weapon){
+
 
         if(hasweapon ==0 || hasweapon == 2)
             sword.update();
@@ -154,21 +156,23 @@ public class Hero extends Character{
            return Integer.max(50+axe.getPower(),50+sword.getPower())-10;
     }
 
-    public void setImg(ImageView img) {
-       this.img= img;
-    }
+
 
     public void bonus_on() {
-       System.out.println("Reached here");
-//        dadada.getChildren().remove(0);
-//        Image Open = new Image(requireNonNull(getClass().getResourceAsStream("GreenOrc_1.png")));
-//        img = new ImageView();
-//        img.setImage(Open);
-//        img.setFitWidth(75);
-//        img.setPreserveRatio(true);
-        hasweapon= -1;
+       //System.out.println("Reached here");
+
+       Image Open = new Image(requireNonNull(getClass().getResourceAsStream("Bonus_Hero.png")));
+        bonus_flag=1;
+       this.getImg().setImage(Open);
+      // this.get_Image().getChildren().set(0,img);
+        weap1.setVisible(false);
+        weap2.setVisible(false);
+       hasweapon= -1;
     }
 
     public void bonus_off() {
+       bonus_flag=0;
+        Image hero=new Image(requireNonNull(getClass().getResourceAsStream("HERO.png")));
+        this.getImg().setImage(hero);
     }
 }
