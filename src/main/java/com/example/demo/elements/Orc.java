@@ -66,8 +66,8 @@ public class Orc extends Character {
 
         left= new Rectangle();
         left.setX(0);
-        left.setY(5);
-        left.setHeight(35);
+        left.setY(0);
+        left.setHeight(45);
         left.setFill(Color.BROWN);
         left.setWidth(2);
         dadada.getChildren().add(left);
@@ -78,26 +78,30 @@ public class Orc extends Character {
     }
 
     public void hasCollided(Hero hero, TranslateTransition fall) {
+
+
         if(hero.getImg().localToScreen(hero.getImg().getBoundsInLocal()).intersects(bottom.localToScreen(bottom.getBoundsInLocal()))) {
             //Game Over
         }
 
         if(hero.getImg().localToScreen(hero.getImg().getBoundsInLocal()).intersects(left.localToScreen(left.getBoundsInLocal()))) {
             runTranslateTransition(this.get_Image(), +400, 0, 200).play();
-            if(hero.getWeapon1()==null) {
-                hitpoints-=50;
-            }
-            else {
-                hitpoints-= (50+ hero.getWeapon1().getPower());
-            }
+            hitpoints -= hero.fight_orc();
         }
 
         if(hero.getImg().localToScreen(hero.getImg().getBoundsInLocal()).intersects(top.localToScreen(top.getBoundsInLocal()))) {
             fall.pause();
             hero.jump();
         }
+        if(hitpoints<0)
+            Die();
     }
+    private void Die(){
 
+        runTranslateTransition(this.get_Image(), +900, 0, 200).play();
+        runTranslateTransition(this.get_Image(), 0, -300, 200).play();
+
+    }
     public int getCoins() {
         return coins;
     }

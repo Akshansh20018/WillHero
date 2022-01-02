@@ -1,6 +1,6 @@
 package com.example.demo.elements;
 
-import com.example.demo.Weapons.Weapons;
+import com.example.demo.Weapons.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
@@ -12,10 +12,16 @@ public class Hero extends Character{
     //private helmet;
      private ImageView img;
      private int coins;
-     private Weapons weapon1= null;
-     private Weapons weapon2= null;
+     private Weapons axe= null;
+     private Weapons sword= null;
      ImageView weap1;
      ImageView weap2;
+     private int hasweapon=-1;
+     /*has weapon = 0 -> sword
+         has weapon = 1 -> axe
+         has weapob =2 -> both
+         -1 -> none
+      */
 
    public Hero(){
        Image hero=new Image(requireNonNull(getClass().getResourceAsStream("HERO.png")));
@@ -25,15 +31,27 @@ public class Hero extends Character{
        img.setPreserveRatio(true);
        AnchorPane dadada= new AnchorPane();
        dadada.getChildren().add(img);
+
+
        set_Image(dadada);
-       weap1= new ImageView();
-       AnchorPane.setTopAnchor(weap1, 10.0);
-       AnchorPane.setLeftAnchor(weap1, 0.0);
-       this.get_Image().getChildren().add(weap1);
-       weap2= new ImageView();
-       AnchorPane.setTopAnchor(weap2, 10.0);
-       AnchorPane.setLeftAnchor(weap2, 0.0);
-       this.get_Image().getChildren().add(weap2);
+
+       Weapons temp = new Axe();
+       weap1 = temp.getImg();
+
+       weap1.setVisible(false);
+
+       dadada.getChildren().add(weap1);
+
+       temp=new Sword();
+       weap2 = temp.getImg();
+       weap2.setLayoutX(30);
+       weap2.setLayoutY(-30);
+       weap2.setVisible(false);
+       dadada.getChildren().add(weap2);
+
+
+
+
 
 
 //       vertical_jump(img,-80,true,700).play();
@@ -50,51 +68,68 @@ public class Hero extends Character{
         return coins;
     }
 
-    public void setWeapon1(Weapons weapon) {
-         weap1 = weapon.getImg();
-        // rotate(weapon.getImg(),-30,false).play();
-        this.weapon1 = weapon;
-    }
 
-    public Weapons getWeapon1() {
-        return this.weapon1;
-    }
+
     public void setWeapon(Weapons weapon){
-       if(weapon1==null){
-           setWeapon1(weapon);
-           System.out.println("setting new weapon");
-       }
-       else if(weapon2==null){
-           setWeapon2(weapon);
-           System.out.println("setting new weapon 2");
-       }
-       else if(weapon1.getClass()==weapon.getClass() )
-           weapon1.update();
-       else if(weapon2.getClass()==weapon.getClass() )
-            weapon2.update();
-       else
-           System.out.println("Handle in weapon");
+
+        if(weapon instanceof  Axe)
+            setWeapon((Axe)weapon);
+        if(weapon instanceof  Sword)
+            setWeapon((Sword)weapon);
+
     }
 
-    public void setWeapon2(Weapons weapon) {
-        weap1 = weapon.getImg();
-        this.weapon2 = weapon;
+    public void setWeapon(Axe weapon){
+
+       if(hasweapon >=1)
+           axe.update();
+       if(hasweapon==-1 || hasweapon == 0)
+       {
+           weap1.setVisible(true);
+           axe = new Axe();
+       }
+       hasweapon+=2;
+
+
     }
+    public void setWeapon(Sword weapon){
+
+        if(hasweapon ==0 || hasweapon == 2)
+            sword.update();
+        if(hasweapon==-1 || hasweapon==1)
+        {   weap2.setVisible(true);
+            sword = new Sword();
+            hasweapon++;
+        }
+
+
+
+    }
+
     public void jump(){
-       /*
-       hero_jump(this.getImg()).play();
+
+      // hero_jump(this.getImg()).play();
 
 
-        */
+
         hero_jump(this.get_Image()).play();
         hero_jump(this.getImg()).play();
-        if(weapon1!=null)
-            hero_jump(weapon1.getImg()).play();
-        if(weapon2!=null)
-            hero_jump(weapon2.getImg()).play();
+        hero_jump(weap1).play();
+        hero_jump(weap2).play();
 
     }
-    public Weapons getWeapon2() {
-        return weapon2;
+    public int fight_orc(){
+       if(hasweapon==-1){
+           return  50;
+       }
+       else if(hasweapon == 1){
+           return 50+axe.getPower();
+       }
+
+       else if(hasweapon == 0)
+           return 50+sword.getPower();
+       else
+           return Integer.max(50+axe.getPower(),50+sword.getPower());
     }
+
 }

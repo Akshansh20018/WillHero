@@ -30,6 +30,7 @@ public class Chest extends Game_Objects{
           return 0;
         }
         if(hero.localToScreen(hero.getBoundsInLocal()).intersects(img.localToScreen(img.getBoundsInLocal()))) {
+            fall.pause();
           //  System.out.println("Chest");
             dadada.getChildren().remove(0);
            Open = new Image(requireNonNull(getClass().getResourceAsStream("ChestOpen.png")));

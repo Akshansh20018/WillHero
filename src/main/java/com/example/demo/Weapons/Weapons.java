@@ -1,15 +1,22 @@
 package com.example.demo.Weapons;
+import com.example.demo.CommonAnimation;
 
+import javafx.animation.RotateTransition;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
 public abstract class Weapons {
     int Power ;
-    public abstract void onAction();
+    public  void onAction(){
+     // CommonAnimation.rotate(img,180,true);
+
+            }
     public void update(){
         Power+=20;
     }
     public int getPower(){
+        System.out.println("SHould be translated");
+        onAction();
         return this.Power;
     }
     private ImageView img ;

@@ -27,7 +27,7 @@ public class Weapon_chest extends  Chest{
     public void hasCollided(Hero hero, TranslateTransition fall) {
         int temp= super.haveCollided(hero.getImg(), fall);
         if(temp==1) {
-            hero.setWeapon(weapon);
+            hero.setWeapon( weapon);
             System.out.println(weapon.getClass());
         }
     }
