@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="370.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.HomePage_Controller">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="370.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.HomePage_Controller">
     <children>
         <ImageView fitHeight="370.0" fitWidth="700.0" pickOnBounds="true">
             <image>
@@ -93,7 +93,7 @@
             <Font name="Berlin Sans FB" size="20.0" />
          </font>
       </Button>
-      <Button fx:id="LoadSavedGame" disable="true" layoutX="241.0" layoutY="255.0" mnemonicParsing="false" onMouseClicked="#StartPlaying" style="-fx-background-color: transparent;" text="Load Saved Game" textFill="WHITE" visible="false">
+      <Button fx:id="LoadSavedGame" disable="true" layoutX="241.0" layoutY="255.0" mnemonicParsing="false" onMouseClicked="#LoadSaved" style="-fx-background-color: transparent;" text="Load Saved Game" textFill="WHITE" visible="false">
          <font>
             <Font name="Berlin Sans FB" size="20.0" />
          </font>

@@ -3,10 +3,7 @@ package com.example.demo;
 import com.example.demo.Weapons.Axe;
 import com.example.demo.Weapons.Sword;
 import com.example.demo.Weapons.Weapons;
-import com.example.demo.elements.Game_Objects;
-import com.example.demo.elements.Obstacle;
-import com.example.demo.elements.Platform;
-import com.example.demo.elements.Hero;
+import com.example.demo.elements.*;
 import javafx.animation.AnimationTimer;
 import javafx.animation.TranslateTransition;
 import javafx.event.ActionEvent;
@@ -24,9 +21,7 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
 
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.ObjectOutputStream;
+import java.io.*;
 import java.net.URISyntaxException;
 import java.net.URL;
 import java.util.ArrayList;
@@ -100,7 +95,7 @@ public class PlayGamePageController implements Initializable{
     private int score;
     private int coins;
     private boolean helper= false;
-
+    private Player player = null;
     private TranslateTransition hero_falling;
     private ArrayList<Game_Objects> obj_temp= new ArrayList<Game_Objects>();
     private Boolean boss_spawned=false;
@@ -113,13 +108,33 @@ public class PlayGamePageController implements Initializable{
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+
         //vertical_jump(hero, -80, true, 800).play();
 
+       if(Main.getGobalsave()==0){
+           //File f = new File("State.txt");
+          player = new Player(0,-1,0);
+
+       }
+       else
+       {
+
+           try {
+               ObjectInputStream in = new ObjectInputStream((new FileInputStream("out.txt")));
+               player = (Player)in.readObject();
+               in.close();
+           } catch (IOException | ClassNotFoundException e) {
+               e.printStackTrace();
+           }
+
+       }
         Random rand= new Random();
         bonus_loc= 45+ rand.nextInt(5);
         //bonus_loc=2;
-
+        score = player.getScore();
+        Score.setText(Integer.toString(score));
         hero= new Hero();
+        hero.setWeapon_number(player.getWeapons());
         hee =hero.get_Image();
 //        Weapons axe = new Sword();
 //        Weapons sword = new Axe();
@@ -138,7 +153,7 @@ public class PlayGamePageController implements Initializable{
         Anchor.getChildren().add(end_check);
 
 
-        coins= 0;
+        coins= player.getCoins();
 
 
         hor_move(cloud_1, -900, 1000, false, 12000).play();
@@ -264,12 +279,17 @@ public class PlayGamePageController implements Initializable{
     }
     public void SaveGame(ActionEvent event) throws IOException {
         timer.stop();
-        ObjectOutputStream out = null;
-        /*try{
+        ObjectOutputStream out =null;
+        player.setCoins(coins);
+        player.setScore(score);
+        player.setWeapons(hero.getweaponcode());
+        try{
 
             out = new ObjectOutputStream(new FileOutputStream("out.txt"));
-            out.writeObject(s1);
-        }*/
+            out.writeObject(player);
+        }finally {
+            out.close();
+        }
     }
 
     public void reviveClicked(ActionEvent event) throws IOException {

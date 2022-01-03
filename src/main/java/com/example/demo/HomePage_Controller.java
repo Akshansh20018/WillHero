@@ -100,6 +100,13 @@ public class HomePage_Controller implements Initializable {
 
     }
     @FXML
+    void LoadSaved(MouseEvent event) throws Exception {
+
+        Main.setGobalsave(1);
+        StartPlaying(event);
+    }
+
+    @FXML
     void PlayButtonClicked(MouseEvent event) {
         DisableHomepage();
         BackButton.setDisable(false);

@@ -19,6 +19,7 @@ public class Hero extends Character{
      private AnchorPane dadada;
      private int hasweapon=-1;
      private int bonus_flag=0;
+
      private Helmet helmet = null;
      /*has weapon = 0 -> sword
          has weapon = 1 -> axe
@@ -37,7 +38,7 @@ public class Hero extends Character{
        dadada.getChildren().add(img);
        setImg(img);
 
-
+        helmet = new Helmet();
        set_Image(dadada);
 
        Weapons temp = new Axe();
@@ -107,12 +108,7 @@ public class Hero extends Character{
 
     }
 
-    public void movetheheroplease(double i){
-        //runTranslateTransition(this.getImg(), i, 0, 200).play();
-        runTranslateTransition(this.get_Image(), i, 0, 200).play();
-       // runTranslateTransition(this.weap1, i, 0, 200).play();
-       // runTranslateTransition(this.weap2, i, 0, 200).play();
-    }
+
 
     public void jump(){
 
@@ -143,7 +139,9 @@ public class Hero extends Character{
         hero_revive(weap1).play();
         hero_revive(weap2).play();
     }
-
+    public int getweaponcode(){
+       return this.hasweapon;
+    }
     public int fight_orc(){
        if(hasweapon==-1){
            return  40;
@@ -176,5 +174,18 @@ public class Hero extends Character{
        bonus_flag=0;
         Image hero=new Image(requireNonNull(getClass().getResourceAsStream("HERO.png")));
         this.getImg().setImage(hero);
+    }
+
+    public void setWeapon_number(int weapons) {
+       hasweapon=weapons;
+       if(hasweapon == 1)
+          weap1.setVisible(true);
+       if(hasweapon==0)
+           weap2.setVisible(true);
+       if(hasweapon==2){
+           weap2.setVisible(true);
+           weap1.setVisible(true);
+       }
+
     }
 }

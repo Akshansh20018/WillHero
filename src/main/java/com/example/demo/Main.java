@@ -19,6 +19,7 @@ import java.util.Random;
 public class Main extends Application {
 
     public static Stage PrimaryStage;
+    private static int globalsave=0;
 
     public static void LoadExitScreen() throws IOException {
 
@@ -115,5 +116,13 @@ public class Main extends Application {
 
     public static void main(String[] args) {
         launch();
+    }
+
+    public static int getGobalsave() {
+        return globalsave;
+    }
+
+    public static void setGobalsave(int gobalsave) {
+        globalsave = gobalsave;
     }
 }

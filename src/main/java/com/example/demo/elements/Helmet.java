@@ -12,4 +12,5 @@ public class Helmet implements java.io.Serializable{
         Weapon1=new Axe();
         Weapon2=new Sword();
     }
+
 }
